@@ -3,8 +3,8 @@ Welcome to FUMA documentation!
 
 **FUMA** is a platform that can be used to annotate, prioritize, visualize and interpret GWAS results.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Check out the :doc:`snp2gene` section for instructions on SNP2GENE, including
+how to :ref:`prepare_input_file` for submission.
 
 .. note::
 
@@ -15,6 +15,6 @@ Contents
 
 .. toctree::
 
-   usage
+   snp2gene
    ref_database
    api
