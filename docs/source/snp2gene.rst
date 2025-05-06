@@ -9,7 +9,7 @@ Prepare Input Files
 Before submitting, gzip your file: 
 
 .. code-block:: console
-   gzip
+   (.venv) $ gzip
 
 
 
