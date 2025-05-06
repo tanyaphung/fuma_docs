@@ -1,10 +1,13 @@
-Usage
-=====
+SNP2GENE
+========
 
 .. _prepare_input_file:
 
 Prepare Input Files
 -------------------
+
+Before submitting, gzip your file: 
+
 .. code-block:: console
    gzip
 
