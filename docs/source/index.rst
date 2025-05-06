@@ -9,7 +9,7 @@ how to :ref:`prepare_input_file` for submission.
 
 .. note::
 
-   This project is under active development and is not ready for use. 
+   This project is under active development and is NOT ready for use. 
 
 Contents
 --------
