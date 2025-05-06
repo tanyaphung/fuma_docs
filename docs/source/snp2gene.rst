@@ -8,8 +8,8 @@ Prepare Input Files
 
 Before submitting, gzip your file: 
 
-.. code-block:: console
-   (.venv) $ gzip
+.. code-block:: python
+   print ("Testing")
 
 
 
