@@ -1,9 +1,6 @@
 Generating reference database
 =====
 
-.. toctree::
- :maxdepth: 2
-
 .. _dbSNPs:
 
 Reference panel
