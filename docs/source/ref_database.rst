@@ -6,7 +6,9 @@ Generating reference database
 Reference panel
 ---------------
 To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA uses reference panels. 
+
 1. 1000 Genome Phase 3
+
 - Genotype data for chromosome 1-22 and X were downloaded from https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ using wget. Example:
 .. code-block:: console
 
