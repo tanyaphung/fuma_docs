@@ -8,6 +8,7 @@ Reference panel
 To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA uses reference panels. 
 
 1. 1000 Genome Phase 3
+++++++++++++++++++++++
 
 - Genotype data for chromosome 1-22 and X were downloaded from https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ using wget. Example:
 .. code-block:: console
@@ -15,7 +16,7 @@ To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA u
    wget https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr*.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz
 
 
-- Multi-allelic SNPs were first split into separate columns using `vcfmulti2oneallele` from JVARKIT (http://lindenb.github.io/jvarkit/)
+- Multi-allelic SNPs were first split into separate columns using vcfmulti2oneallele from JVARKIT (http://lindenb.github.io/jvarkit/)
     - Download the pre-compiled jar archive for JVARKIT from: https://uncloud.univ-nantes.fr/index.php/s/4sL77oWR2BFzSBH
     - Command to split Multi-allelic SNPs: 
     .. code-block:: console
@@ -60,17 +61,17 @@ To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA u
             - update frequency filtering
 
 
-- Create the `{pop}.chr*.rsID.gz`
+- Create the {pop}.chr*.rsID.gz
     - #TODO
 
 
-- Create the `{pop}.chr*.frq.gz`
+- Create the {pop}.chr*.frq.gz
 .. code-block:: console
 
    ./plink -bfile chr*_splitmultiallelicsnps_filtered --freq --out chr*_splitmultiallelicsnps_filtered_maf
 
 
-- Create the `{pop}.chr*.ld.gz`
+- Create the {pop}.chr*.ld.gz
 .. code-block:: console
 
    ./plink -bfile chr*_splitmultiallelicsnps_filtered --r2 --ld-window 99999 --ld-window-r2 0.05 --out chr*_splitmultiallelicsnps_ld
