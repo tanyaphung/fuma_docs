@@ -1,6 +1,9 @@
 Generating reference database
 =====
 
+.. toctree::
+ :maxdepth: 2
+
 .. _dbSNPs:
 
 Reference panel
@@ -25,7 +28,7 @@ To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA u
 .. code-block:: console
 
    ./plink --vcf chr*_splitmultiallelicsnps.vcf.gz --out chr
-21_splitmultiallelicsnps
+    21_splitmultiallelicsnps
 
 - Apply filtering: 
     - Filtering criteria: 
