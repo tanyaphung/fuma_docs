@@ -17,6 +17,7 @@ To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA u
 
 
 - Multi-allelic SNPs were first split into separate columns using vcfmulti2oneallele from JVARKIT (http://lindenb.github.io/jvarkit/)
+    
     - Download the pre-compiled jar archive for JVARKIT from: https://uncloud.univ-nantes.fr/index.php/s/4sL77oWR2BFzSBH
     - Command to split Multi-allelic SNPs: 
     .. code-block:: console
@@ -77,6 +78,8 @@ To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA u
    ./plink -bfile chr*_splitmultiallelicsnps_filtered --r2 --ld-window 99999 --ld-window-r2 0.05 --out chr*_splitmultiallelicsnps_ld
 
 
+.. notes.::
+    Reference panel **ALL** contains the most number of SNPs. To avoid missing SNPs from FUMA annotations, reference panel **ALL** might be preferred. However, the LD is not population specific and need caution for the definition of independent significant SNPs and lead SNPs.
 
 
 dbSNPs
