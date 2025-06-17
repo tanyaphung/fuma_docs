@@ -63,6 +63,7 @@ To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA u
 
 
 - Create the {pop}.chr*.rsID.gz
+
     - #TODO
 
 
@@ -78,7 +79,7 @@ To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA u
    ./plink -bfile chr*_splitmultiallelicsnps_filtered --r2 --ld-window 99999 --ld-window-r2 0.05 --out chr*_splitmultiallelicsnps_ld
 
 
-.. notes.::
+.. note::
     Reference panel **ALL** contains the most number of SNPs. To avoid missing SNPs from FUMA annotations, reference panel **ALL** might be preferred. However, the LD is not population specific and need caution for the definition of independent significant SNPs and lead SNPs.
 
 
