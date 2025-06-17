@@ -1,5 +1,7 @@
-Generating reference database
+Generating FUMA database
 =====
+
+A number of pre-processed files are required to run FUMA. In this section, we will describe how to generate these data. 
 
 .. _dbSNPs:
 
@@ -82,6 +84,48 @@ To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA u
 .. note::
     Reference panel **ALL** contains the most number of SNPs. To avoid missing SNPs from FUMA annotations, reference panel **ALL** might be preferred. However, the LD is not population specific and need caution for the definition of independent significant SNPs and lead SNPs.
 
+
+- Download links
+.. list-table:: Number of samples and SNPs in the reference panels
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+   * - Population
+     - Sample size
+     - Number of SNPs
+     - Download link
+   * - ALL
+     - 2,504
+     - 84,853,668
+     - 
+   * - AFR
+     - 661 
+     - 84,853,668
+     - 
+   * - AMR
+     - 347
+     - 29,501,504
+     - 
+   * - EAS
+     - 504
+     - 24,507,348
+     - 
+   * - EUR
+     - 503 
+     - 25,063,419
+     - 
+   * - SAS
+     - 489
+     - 27,691,316
+     -      
+
+2. UK Biobank release 2b
+++++++++++++++++++++++++
+
+Genotype data was obtained under application ID 16406. The reference panel is based on genotype data released in May 2018 (including SNPs imputed UK10K/1000G). Two reference panels were created; white British and European subjects. For white British, 10,000 unrelated individuals were randomly selected. For European, each individuals were first assigned to one of the 5 1000G populations based on the minimum Mahalanobis distance. Then randomly selected 10,000 unrelated EUR individuals were used.
+SNPs were filtered on INFO score > 0.9. MAF and pairwise LD were computed by PLINK (--r2 --ld-window 99999 --ld-window-r2 0.05) and SNPs with MAF=0 were excluded.
+In both reference panels, 16,972,700 SNPs are available.
+    
 
 dbSNPs
 ------------
