@@ -63,8 +63,9 @@ Headers
 - A header is mandatory
 - Users have an option to specify the column names of the input GWAS sumstat: 
 
-.. image:: https://github.com/tanyaphung/fuma_docs/blob/main/images/user_input_colnames.png
-  :width: 400
+.. code-block:: RST
+   .. image:: images/user_input_colnames.png
+   :width: 400
 
 Column names are automatically detected based on the following headers (case insensitive).
 
