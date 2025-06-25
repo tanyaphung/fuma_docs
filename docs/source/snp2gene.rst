@@ -95,7 +95,7 @@ Tips
 
    - The header should not start with a comment character (#) because any lines that starts with # will be ignored.
    - The number of column names need to be equal to the number of columns in your input file.
-   
+
       - if the input file has a row index, this means that there is one fewer column name in the header as compared to when the actual data starts.
       - to fix this, one needs to save the data specifying `index=False` (the syntax depends on the specific language)
 2. rsID if exists has to be in rsID format and not chr:pos:a1:a2 format
@@ -107,6 +107,33 @@ Tips
 8. If you specify the name of chromosome, position, etc… during submission, make sure that these names exist in your input file
 9. Make sure that the delimiter is consistent. In addition, Delimiter can be any of white space including single space, multiple space and tab. Because of this, each element including column names must not include any space
 10. Check your file to make sure that there is no quotation around each value. It should be for example 1 instead of "1". This is usually caused when you save a file in R. To avoid this, one needs to set `quote=F` when saving a file in R. 
+
+2. Pre-defined lead SNPs
+++++++++++++++++++++++++
+This is an optional input file.
+This option would be useful when
+1. You have lead SNPs of interest but they do not reach significant P-value threshold.
+2. You are only interested in specific lead SNPs and do not want to identify additional lead SNPs which are independent. In this case, you also have to UNCHECK option of Identify additional independent lead SNPs.
+
+If you want to specify lead SNPs, input file should have the following 3 columns:
+   - rsID : rsID of the lead SNPs
+   - chr : chromosome
+   - pos : genomic position (hg19)
+
+.. note::
+      The order of columns has to be exactly the same as shown above but header could be anything (the first row is ignored). Extra columns will be ignored.
+
+3. Pre-defined genomic region
++++++++++++++++++++++++++++++
+This is an optional input file. This option would be useful when you have already done some follow-up analyses of your GWAS and are interested in specific genomic regions. When pre-defined genomic region is provided, regardless of parameters, only lead SNPs and SNPs in LD with them within provided regions will be reported in outputs.
+
+If you want to analyze only specific genomic regions, the input file should have the following 3 columns:
+   - chr : chromosome
+   - start : start position of the genomic region of interest (hg19)
+   - end : end position of the genomic region of interest (hg19)
+
+.. note::
+      The order of columns has to be exactly the same as shown above but header could be anything (the first row is ignored). Extra columns will be ignored.
 
 .. _parameters:
 Parameters
