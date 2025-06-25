@@ -41,6 +41,50 @@ If your data is build GRCh38, you can:
 .. _mandatory_columns:
 Mandatory columns
 ^^^^^^^^^^^^^^^^^
+- The input GWAS sumstat must include:
+   - a column for the p values, a column for the chromosome, and a column for the position OR
+   - a column for the p values and a column for the rsID
+- The chromosome column can be a string such as "chr1" or just an integer such as "1". When "chr" is attached, this will be removed in output files. 
+- Chromosome X can be encoded as chrX, X, chr23, or 23
+   - when chrX or X is used, it will be updated to 23.
+- Position has to be integer (and not in scientific notation)
+
+Allele columns
+^^^^^^^^^^^^^^
+- Alleles are not mandatory but if only one allele is provided, that is considered to be the effect allele. 
+- When two alleles are provided, the effect allele will be defined depending on column name. 
+- If alleles are not provided, they will be extracted from the dbSNP build 146 and minor alleles will be assumed to be the effect alleles. 
+- Effect and non-effect alleles are not distinguished during annotations, but used for alignment with eQTLs. 
+- Whenever alleles are provided, they are matched with dbSNP build 146 if extraction of rsID, chromosome or position is necessary.
+- Alleles are case insensitive.
+
+Headers
+^^^^^^^
+- A header is mandatory
+- Users have an option to specify the column names of the input GWAS sumstat: 
+
+.. image:: images/user_input_colnames.png
+  :width: 400
+
+Column names are automatically detected based on the following headers (case insensitive).
+
+SNP | snpid | markername | rsID: rsID
+CHR | chromosome | chrom: chromosome
+BP | pos | position: genomic position (hg19)
+A1 | effect_allele | allele1 | alleleB: affected allele
+A2 | non_effect_allele | allele2 | alleleA: another allele
+P | pvalue | p-value | p_value | pval: P-value (Mandatory)
+OR: Odds Ratio
+Beta | be: Beta
+SE: Standard error
+If your input file has alternative names, these can be entered in the respective input boxes when specifying the input file. Note that any columns with the name listed above but with different element need to be avoided. For example, when the column name is "SNP" but the actual element is an id such as "chr:position" rather than rsID will cause an error.
+Extra columns will be ignored.
+Rows that start with "#" will be ignored.
+ Column "N" is described in the Parameters section.
+ Be careful with the alleles header in which A1 is defined as effect allele by default. Please specify both effect and non-effect allele column to avoid mislabeling.
+If wrong labels are provided for alleles, it does not affect any annotation and prioritization results. It does however affect eQTLs results (alignment of risk increasing allele of GWAS and tested allele of eQTLs). Be aware of that when you interpret results.
+Delimiter
+Delimiter can be any of white space including single space, multiple space and tab. Because of this, each element including column names must not include any space.
 
 Parameters
 ----------
