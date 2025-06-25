@@ -66,6 +66,7 @@ Headers
 .. image:: images/user_input_colnames.png
    :width: 400
 
+
 - When users do not specify the column names of the input GWAS sumstat, FUMA automatically detects the columns based on the following headers (case insensitive):
    - If a column has names **snp**, **snpid**, or **markername**, it will be detected as column for rsID
    - If a column has names **chr**, **chromosome**, or **chrom**, it will be detected as column for chromosome
@@ -82,7 +83,7 @@ Headers
 - Rows that start with "#" will be ignored.
 - Column "N" is described in the :ref:`parameters` section.
 - Be careful with the alleles header in which A1 is defined as effect allele by default. Please specify both effect and non-effect allele column to avoid mislabeling.
-If wrong labels are provided for alleles, it does not affect any annotation and prioritization results. It does however affect eQTLs results (alignment of risk increasing allele of GWAS and tested allele of eQTLs). Be aware of that when you interpret results.
+   - If wrong labels are provided for alleles, it does not affect any annotation and prioritization results. It does however affect eQTLs results (alignment of risk increasing allele of GWAS and tested allele of eQTLs). Be aware of that when you interpret results.
 
 Delimiter
 ^^^^^^^^^
@@ -91,8 +92,10 @@ Delimiter can be any of white space including single space, multiple space and t
 Tips
 ^^^^
 1. Make sure that there is a header (column name) in the input GWAS sumstat.
+
    - The header should not start with a comment character (#) because any lines that starts with # will be ignored.
    - The number of column names need to be equal to the number of columns in your input file.
+   
       - if the input file has a row index, this means that there is one fewer column name in the header as compared to when the actual data starts.
       - to fix this, one needs to save the data specifying `index=False` (the syntax depends on the specific language)
 2. rsID if exists has to be in rsID format and not chr:pos:a1:a2 format
