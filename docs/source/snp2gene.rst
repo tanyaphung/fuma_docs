@@ -10,7 +10,7 @@ Prepare Input Files
 ++++++++++++++++++++++++++
 
 Overview
-++++++++
+^^^^^^^^
 
 - GWAS summary statistics (GWAS sumstat) is a mandatory input of SNP2GENE module. 
 - FUMA accepts various types of format. For example, PLINK, SNPTEST, and METAL output formats can be used as is. 
@@ -29,7 +29,7 @@ Overview
 - Below are some more specific information to help with preparing the input GWAS sumstat
 
 Genome Build
-++++++++++++
+^^^^^^^^^^^^
 The reference data used by FUMA is on build GRCh37 (hg19).
 If your data is build GRCh37, you can upload your file.
 If your data is build GRCh38, you can: 
