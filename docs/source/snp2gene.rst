@@ -14,7 +14,7 @@ Overview
 
 - GWAS summary statistics (GWAS sumstat) is a mandatory input of SNP2GENE module. 
 - FUMA accepts various types of format. For example, PLINK, SNPTEST, and METAL output formats can be used as is. 
-- Otherwise, the input GWAS sumstat has to have these columns (more information in the `Mandatory columns` section):
+- Otherwise, the input GWAS sumstat has to have these columns (more information in the :ref:`mandatory_columns` section):
    - chromosome, position (in hg19), and p values OR
    - rsID and p values
 - Every row should contain information for one SNP. 
@@ -38,7 +38,9 @@ If your data is build GRCh38, you can:
       - in this case, FUMA will use the provided rsID to look up the chromosomes and positions using dbSNP
 
 
-
+.. _mandatory_columns:
+Mandatory columns
+^^^^^^^^^^^^^^^^^
 
 Parameters
 ----------
