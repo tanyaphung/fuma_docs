@@ -24,6 +24,7 @@ Overview
 - Example code: 
 
 .. code-block:: python
+    
     outfile = open("locus.input", "w")
     header = ["CHR", "POS", "REF", "ALT", "N", "BETA", "P", "MAF"]
     print("\t".join(header), file=outfile)

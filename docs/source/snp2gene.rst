@@ -24,6 +24,7 @@ Overview
 - Before submitting, gzip your file: 
 
 .. code-block:: console
+   
    gzip {gwas/sum/stat}
 
 - Below are some more specific information to help with preparing the input GWAS sumstat
