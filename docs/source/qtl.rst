@@ -22,7 +22,8 @@ Overview
     - Subset the full GWAS summary statistics using the start and end coordinates that represent a genetic locus of interest
     - Select the 8 columns: CHR, POS, REF, ALT, N, BETA, P, MAF
 - Example code: 
-..code-block:: Python
+
+.. code-block:: python
     outfile = open("locus.input", "w")
     header = ["CHR", "POS", "REF", "ALT", "N", "BETA", "P", "MAF"]
     print("\t".join(header), file=outfile)

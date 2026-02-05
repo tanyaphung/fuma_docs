@@ -17,6 +17,6 @@ Contents
 .. toctree::
 
    snp2gene
-   qlt
+   qtl
    ref_database
    api
