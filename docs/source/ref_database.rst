@@ -144,6 +144,7 @@ Since FUMA version x.y.x, a different set of QTL datasets were processed for the
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 - For a complete documention of all the processed QLTs datasets that have been processed, please check https://github.com/tanyaphung/fuma_qtls
 - Summary table: 
+
 .. list-table:: QTL datasets that have been processed for the QTL Analysis module
    :widths: 25 25 25
    :header-rows: 1
