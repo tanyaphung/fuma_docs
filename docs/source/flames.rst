@@ -23,5 +23,6 @@ Overview
     - The file has to be bgzip
 
     .. code-block:: bash
+        
         bgzip -c {input} > {input}.gz #replace with the path to the GWAS summary statistics
 
