@@ -7,6 +7,7 @@ Starting 2025, FUMA documentation and tutorial will be hosted on readthedocs.
 For instructions on SNP2GENE, navigate to :doc:`snp2gene` section. 
 For instructions on FLAMES, navigate to :doc:`flames` section. 
 For instructions on QTL Analysis, navigate to :doc:`qtl` section.
+For instructions on how to contribute to FUMA, navigate to :doc:`contributing` section.
 
 .. note::
 
@@ -21,4 +22,5 @@ Contents
    flames
    qtl
    ref_database
+   contributing
    api
