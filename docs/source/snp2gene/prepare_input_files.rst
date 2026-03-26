@@ -1,10 +1,5 @@
-SNP2GENE
-========
-
-.. _prepare_input_file:
-
 Prepare Input Files
--------------------
+===================
 
 1. GWAS summary statistics
 ++++++++++++++++++++++++++
@@ -135,9 +130,3 @@ If you want to analyze only specific genomic regions, the input file should have
 
 .. note::
       The order of columns has to be exactly the same as shown above but header could be anything (the first row is ignored). Extra columns will be ignored.
-
-.. _parameters:
-Parameters
-----------
-Annotation and prioritization depends on several settings, which can be adjusted if desired. The default settings will result in performing naive positional mapping which maps all independent lead SNPs and SNPs in LD to genes up to 10kb apart. It does not include eQTL mapping by default, and it also does not filter on specific functional consequences of SNPs. If for example you are interested in prioritizing genes only when they are indicated by an eQTL that is in LD with a significant lead SNP, or by exonic SNPs, then you need to adjust the parameter settings.
-
