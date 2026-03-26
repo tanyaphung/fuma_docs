@@ -24,3 +24,10 @@ Contents
    ref_database
    contributing
    api
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: Test
+
+   TEST </TEST/test>
