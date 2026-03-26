@@ -59,7 +59,7 @@ Headers
 - A header is mandatory
 - Users have an option to specify the column names of the input GWAS sumstat: 
 
-.. image:: images/user_input_colnames.png
+.. image:: docs/source/images/user_input_colnames.png
    :width: 400
 
 
