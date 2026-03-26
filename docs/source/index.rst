@@ -18,7 +18,7 @@ Contents
 
 .. toctree::
 
-   snp2gene/snp2gene
+   snp2gene
    flames
    qtl
    ref_database
