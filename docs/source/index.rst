@@ -28,6 +28,28 @@ Contents
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: Test
+   :caption: SNP2GENE
 
-   TEST </TEST/test>
+   Prepare input files </snp2gene/prepare_input_files>
+   Parameters </snp2gene/parameters>
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: QLT
+
+   QTL analysis </qtl/qtl>
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: FLAMES
+
+   FLAMES </flames/flames>
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: REFERENCE DATABASE
+
+   Reference databases </ref_database/ref_database>
