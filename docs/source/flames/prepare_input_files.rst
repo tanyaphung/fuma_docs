@@ -1,5 +1,5 @@
-FLAMES
-========
+Prepare Input Files
+===================
 
 .. note::
 
@@ -7,8 +7,6 @@ FLAMES
 
 .. _prepare_input_file:
 
-Prepare Input Files
--------------------
 
 1. GWAS summary statistics
 ++++++++++++++++++++++++++

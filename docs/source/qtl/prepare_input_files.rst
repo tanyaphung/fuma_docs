@@ -1,14 +1,10 @@
-QTL
-========
+Prepare Input Files
+===================
 
 .. note::
 
    THIS IS UNDER DEVELOPMENT
 
-.. _prepare_input_file:
-
-Prepare Input Files
--------------------
 
 1. GWAS summary statistics for a genetic locus of interest
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

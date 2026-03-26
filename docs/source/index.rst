@@ -38,18 +38,27 @@ Contents
    :hidden:
    :caption: QLT
 
-   QTL analysis </qtl/qtl>
+   Prepare input files </qtl/prepare_input_files>
 
 .. toctree::
    :maxdepth: 2
    :hidden:
    :caption: FLAMES
 
-   FLAMES </flames/flames>
+   Prepare input files </flames/prepare_input_files>
 
 .. toctree::
    :maxdepth: 2
    :hidden:
    :caption: REFERENCE DATABASE
 
-   Reference databases </ref_database/ref_database>
+   Reference panel </ref_database/reference_panel>
+   dbSNPs </ref_database/dbsnps>
+   QTLs </ref_database/qtls>
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: Contribute to FUMA
+
+   Contribute to FUMA </contributing/contributing>
