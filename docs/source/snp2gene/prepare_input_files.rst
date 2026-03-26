@@ -1,6 +1,8 @@
 Prepare Input Files
 ===================
 
+.. _gwas_sumstat:
+
 1. GWAS summary statistics
 ++++++++++++++++++++++++++
 
@@ -31,10 +33,10 @@ Overview
 
 Genome Build
 ^^^^^^^^^^^^
-The reference data used by FUMA is on build GRCh37 (hg19).
-If your data is build GRCh37, you can upload your file.
-If your data is build GRCh38, you can: 
-   - use UCSC liftover tool to lift over from GRCh38 to GRCh37
+- The reference data used by FUMA is on build GRCh37 (hg19).
+- If your data is build GRCh37, you can upload your file.
+- If your data is build GRCh38, you can: 
+   - use UCSC liftover tool to lift over from GRCh38 to GRCh37, OR: 
    - if your input GWAS sumstat file contains rsID, you can still submit to FUMA by first make sure that chromosome and position columns are not present. 
       - in this case, FUMA will use the provided rsID to look up the chromosomes and positions using dbSNP
 
