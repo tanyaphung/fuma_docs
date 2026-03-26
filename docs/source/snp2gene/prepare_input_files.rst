@@ -14,7 +14,7 @@ Overview
    - rsID and p values
 - Every row should contain information for one SNP. 
 - An input GWAS sumstat could contain only subset of SNPs (e.g. SNPs of interest for your study to annotate them), but in this case, results of MAGMA will not be relevant anymore.
-- Please note that variants that do not exist in the selected reference panel will not be included in any analyses. The 1000G reference panel is provided in the Download page (scroll to the section Reference panel data).
+- Please note that variants that do not exist in the selected reference panel will not be included in any analyses. The 1000G reference panel is provided in the Download page (https://fuma.ctglab.nl/downloadPage) (scroll to the section Reference panel data).
 - Prepare input GWAS sumstat in ascii txt.  
 - Before submitting, gzip your file: 
 
