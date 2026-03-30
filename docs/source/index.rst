@@ -13,6 +13,15 @@ Contents
 
 .. toctree::
    :maxdepth: 2
+
+   SNP2GENE
+   QLT
+   FLAMES
+   REFERENCE DATABASE
+   Contribute to FUMA
+
+.. toctree::
+   :maxdepth: 2
    :hidden:
    :caption: SNP2GENE
 
