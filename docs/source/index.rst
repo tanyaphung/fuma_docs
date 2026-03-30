@@ -13,16 +13,6 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-
-   SNP2GENE
-   QLT
-   FLAMES
-   REFERENCE DATABASE
-   Contribute to FUMA
-
-.. toctree::
-   :maxdepth: 2
-   :hidden:
    :caption: SNP2GENE
 
    Prepare input files </snp2gene/prepare_input_files>
@@ -30,21 +20,18 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :caption: QLT
 
    Prepare input files </qtl/prepare_input_files>
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :caption: FLAMES
 
    Prepare input files </flames/prepare_input_files>
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :caption: REFERENCE DATABASE
 
    Reference panel </ref_database/reference_panel>
@@ -53,7 +40,6 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :caption: Contribute to FUMA
 
    Contribute to FUMA </contributing/contributing>
