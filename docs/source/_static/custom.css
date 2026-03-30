@@ -1,8 +1,11 @@
-/* Disable word stretching in table cells (Classic theme) */
-div.body table td {
-    text-align: left;
+/* Force left alignment inside table cell paragraphs */
+div.body table td p,
+div.body table th p {
+    text-align: left !important;
 }
 
+/* Optional: ensure the cell itself is also left-aligned */
+div.body table td,
 div.body table th {
-    text-align: left;
+    text-align: left !important;
 }
