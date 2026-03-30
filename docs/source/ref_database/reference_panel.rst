@@ -113,6 +113,7 @@ To define independent significant SNPs, lead SNPs, and genomic risk loci, FUMA u
      - 27,691,316
      -      
 
+.. _ukb_ref:
 2. UK Biobank release 2b
 ++++++++++++++++++++++++
 
