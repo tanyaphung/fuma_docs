@@ -9,7 +9,6 @@ In this section, every parameter that can be adjusted will be described in detai
 ++++++++++++++
 
 .. list-table:: 
-   :class: no-justify
    :widths: 20 20 40 10 10
    :header-rows: 1
 
