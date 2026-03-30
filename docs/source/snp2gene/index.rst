@@ -1,8 +1,6 @@
 SNP2GENE
 ========
 
-Title: SNP2GENE
-
 .. toctree::
    :maxdepth: 2
 

@@ -15,36 +15,7 @@ Contents
    :maxdepth: 2
 
    snp2gene/index
-
-.. .. toctree::
-..    :maxdepth: 2
-..    :caption: SNP2GENE
-
-..    SNP2GENE Prepare input files </snp2gene/prepare_input_files>
-..    SNP2GENE Parameters </snp2gene/parameters>
-
-.. .. toctree::
-..    :maxdepth: 2
-..    :caption: QLT
-
-..    QLT Prepare input files </qtl/prepare_input_files>
-
-.. .. toctree::
-..    :maxdepth: 2
-..    :caption: FLAMES
-
-..    Prepare input files </flames/prepare_input_files>
-
-.. .. toctree::
-..    :maxdepth: 2
-..    :caption: REFERENCE DATABASE
-
-..    Reference panel </ref_database/reference_panel>
-..    dbSNPs </ref_database/dbsnps>
-..    QTLs </ref_database/qtls>
-
-.. .. toctree::
-..    :maxdepth: 2
-..    :caption: Contribute to FUMA
-
-..    Contribute to FUMA </contributing/contributing>
+   qtl/index
+   flames/index
+   ref_database/index
+   contributing/index
