@@ -41,4 +41,4 @@ html_theme = "classic"
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 
-html_css_files = ["custom.css"]
+# html_css_files = ["custom.css"]
