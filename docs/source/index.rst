@@ -13,33 +13,38 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :name: SNP2GENE
 
-   Prepare input files </snp2gene/prepare_input_files>
-   Parameters </snp2gene/parameters>
+   snp2gene/index
 
-.. toctree::
-   :maxdepth: 2
-   :name: QLT
+.. .. toctree::
+..    :maxdepth: 2
+..    :caption: SNP2GENE
 
-   Prepare input files </qtl/prepare_input_files>
+..    SNP2GENE Prepare input files </snp2gene/prepare_input_files>
+..    SNP2GENE Parameters </snp2gene/parameters>
 
-.. toctree::
-   :maxdepth: 2
-   :name: FLAMES
+.. .. toctree::
+..    :maxdepth: 2
+..    :caption: QLT
 
-   Prepare input files </flames/prepare_input_files>
+..    QLT Prepare input files </qtl/prepare_input_files>
 
-.. toctree::
-   :maxdepth: 2
-   :name: REFERENCE DATABASE
+.. .. toctree::
+..    :maxdepth: 2
+..    :caption: FLAMES
 
-   Reference panel </ref_database/reference_panel>
-   dbSNPs </ref_database/dbsnps>
-   QTLs </ref_database/qtls>
+..    Prepare input files </flames/prepare_input_files>
 
-.. toctree::
-   :maxdepth: 2
-   :name: Contribute to FUMA
+.. .. toctree::
+..    :maxdepth: 2
+..    :caption: REFERENCE DATABASE
 
-   Contribute to FUMA </contributing/contributing>
+..    Reference panel </ref_database/reference_panel>
+..    dbSNPs </ref_database/dbsnps>
+..    QTLs </ref_database/qtls>
+
+.. .. toctree::
+..    :maxdepth: 2
+..    :caption: Contribute to FUMA
+
+..    Contribute to FUMA </contributing/contributing>
