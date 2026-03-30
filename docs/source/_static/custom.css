@@ -1,0 +1,8 @@
+/* Disable word stretching in table cells (Classic theme) */
+div.body table td {
+    text-align: left;
+}
+
+div.body table th {
+    text-align: left;
+}

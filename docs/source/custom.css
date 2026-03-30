@@ -1,8 +1,0 @@
-/* Prevent words from stretching to fill table cells */
-.rst-content table.docutils td {
-    text-align: left;
-}
-
-.rst-content table.docutils th {
-    text-align: left;
-}
