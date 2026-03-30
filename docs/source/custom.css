@@ -1,7 +1,8 @@
-.wy-table-responsive table td, .wy-table-responsive table th {
-    white-space: normal !important;
+/* Prevent words from stretching to fill table cells */
+.rst-content table.docutils td {
+    text-align: left;
 }
 
-.wy-table-responsive {
-    overflow : visible !important;
+.rst-content table.docutils th {
+    text-align: left;
 }

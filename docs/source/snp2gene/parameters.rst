@@ -9,6 +9,7 @@ In this section, every parameter that can be adjusted will be described in detai
 ++++++++++++++
 
 .. list-table:: 
+   :class: no-justify
    :widths: 20 20 40 10 10
    :header-rows: 1
 
@@ -35,6 +36,6 @@ In this section, every parameter that can be adjusted will be described in detai
    * - Pre-defined genetic region
      - Optional
      - Optional pre-defined genomic regions.
-        FUMA only looks at provided regions to identify lead SNPs and SNPs in LD of them. If you are only interested in specific regions, this option will increase the speed of process.
+       FUMA only looks at provided regions to identify lead SNPs and SNPs in LD of them. If you are only interested in specific regions, this option will increase the speed of process.
      - File upload
      - none
