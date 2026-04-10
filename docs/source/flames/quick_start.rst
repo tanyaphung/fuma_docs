@@ -60,3 +60,13 @@ To run a successful FLAMES job on FUMA, follow the following steps:
    :width: 400
 
 - To make sure that your input gwas summary statistics is correctly formatted, check :ref:`prepare_input_file` section.
+
+6. Troubleshooting
+------------------
+
+- After you submit your FLAMES job, you can check the status of your job under **My Jobs** page. 
+- Click on **load results** to view the results of successful FLAMES jobs. 
+- If there was an error when running a FLAMES job, you can inspect the log files to check what went wrong
+
+.. image:: query_page.png
+   :width: 400

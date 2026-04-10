@@ -4,11 +4,8 @@ Prepare Input Files
 .. _prepare_input_file:
 
 
-1. GWAS summary statistics
+GWAS summary statistics
 ++++++++++++++++++++++++++
-
-Overview
-^^^^^^^^
 
 - To perform gene prioritization analysis with FLAMES on FUMA, a GWAS summary statistics is required. Specific requirements:
     - This is the same summary statistics file that you used for SNP2GENE analysis.
