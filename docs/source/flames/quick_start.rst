@@ -69,4 +69,13 @@ To run a successful FLAMES job on FUMA, follow the following steps:
 - If there was an error when running a FLAMES job, you can inspect the log files to check what went wrong
 
 .. image:: query_page.png
-   :width: 400
+   :width: 800
+
+7. Viewing FLAMES results
+-------------------------
+
+- The main FLAMES results are displayed in the table. 
+- You can also download the files at the end of the page.
+
+.. image:: results_page.png
+   :width: 800
