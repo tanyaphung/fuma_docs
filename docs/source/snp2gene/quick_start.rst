@@ -1,3 +1,5 @@
+.. include:: docs/source/snp2gene/prepare_input_files.rst
+
 Quick start
 ===========
 
