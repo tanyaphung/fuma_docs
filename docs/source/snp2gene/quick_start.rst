@@ -20,12 +20,12 @@ Upload your GWAS summary statistics
     - check :ref:`gwas_sumstat` section on how to corrently prepare the input file
 - Starting from FUMA v2.0, you can check the button `Keep input files after job completion.` in order to run FLAMES after a successful completion of the SNP2GENE job. 
     - The default is unchecked, which means that your uploaded input GWAS summary statistics and intermediate files producded by FUMA are removed from the FUMA server as soon as the job finishes. 
-    - if this option is checked, your uploaded input GWAS summary statistics and intermediate files that are needed to run FUMA are kept for 7 days. After 7 days, they are deleted from the FUMA server. 
+    - If this option is checked, your uploaded input GWAS summary statistics and intermediate files that are needed to run FUMA are kept for 7 days. After 7 days, they are deleted from the FUMA server. 
 
 Specify the column names
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Even though FUMA is capable of automatically detecting the column names of your header, only headers with specific keywords can be detected (see :ref:`_headers`). Therefore, it is always recommended that you specify the column names of your header. 
+- Even though FUMA is capable of automatically detecting the column names of your header, only headers with specific keywords can be detected (see :ref:`headers`). Therefore, it is always recommended that you specify the column names of your header. 
 - For example, this is the first few lines of an input GWAS summary statistics: 
 
 .. image:: example_gwas_sumstat.png
