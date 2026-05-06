@@ -30,12 +30,14 @@ To run a successful QTLs analysis on FUMA, follow the following steps:
    :width: 600
 
 4. Select LAVA (if desired)
+---------------------------
 - Click on the button in the `Perform LAVA` section to select LAVA and update parameters if needed. 
 
 .. image::lava.png
    :width: 600
 
 5. Other parameters
+-------------------
 - Fill in the number of cases
     - Put in `NA` if your trait is a continuous trait
 - Fill in the total number of sample size
@@ -44,6 +46,7 @@ To run a successful QTLs analysis on FUMA, follow the following steps:
    :width: 600
 
 6. Select datasets
+------------------
 - QTLs datasets are organized by types and name of datasets. Click on the name of the datasets to select. 
 
 .. image::qtls_datasets.png
