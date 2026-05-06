@@ -2,7 +2,6 @@ Prepare Input Files
 ===================
 
 .. _gwas_sumstat:
-
 1. GWAS summary statistics
 ++++++++++++++++++++++++++
 
