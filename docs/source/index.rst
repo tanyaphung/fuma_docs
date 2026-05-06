@@ -17,5 +17,4 @@ Contents
    snp2gene/index
    flames/index
    qtl/index
-   ref_database/index
    contributing/index
