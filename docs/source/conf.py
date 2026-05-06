@@ -37,7 +37,7 @@ templates_path = ['_templates']
 # }
 
 # html_theme = "classic"
-html_theme = "sphinxdoc"
+html_theme = "sphinx-rtd"
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
