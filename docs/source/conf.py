@@ -36,7 +36,8 @@ templates_path = ['_templates']
 #     "relbarbgcolor": "black"
 # }
 
-html_theme = "classic"
+# html_theme = "classic"
+html_theme = "sphinxdoc"
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'

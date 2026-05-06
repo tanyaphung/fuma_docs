@@ -6,4 +6,3 @@ SNP2GENE
 
    quick_start
    prepare_input_files
-   parameters
