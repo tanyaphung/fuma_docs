@@ -31,17 +31,17 @@ Specify the column names
 .. image:: example_gwas_sumstat.png
    :width: 800
 
-    - Based on the header of the GWAS summary statitics, one should fill in the fields as follows: 
-        - put in `chr` for `Chromosome`
-        - put in `pos` for `Position`
-        - put in `rsid` for `rsID`
-        - put in `A1` for `Effect allele`
-        - put in `A2` for `Non effect allele`
-        - put in `pval` for `P-value`
-        - put in `beta` for `Beta`
+- Based on the header of the GWAS summary statitics, one should fill in the fields as follows: 
+    - put in `chr` for `Chromosome`
+    - put in `pos` for `Position`
+    - put in `rsid` for `rsID`
+    - put in `A1` for `Effect allele`
+    - put in `A2` for `Non effect allele`
+    - put in `pval` for `P-value`
+    - put in `beta` for `Beta`
 
-        .. image:: example_input_parameters.png
-            :width: 600
+    .. image:: example_input_parameters.png
+        :width: 600
 
 The rest of part 1
 ~~~~~~~~~~~~~~~~~~
