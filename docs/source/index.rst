@@ -15,7 +15,7 @@ Contents
    :maxdepth: 2
 
    snp2gene/index
-   qtl/index
    flames/index
+   qtl/index
    ref_database/index
    contributing/index

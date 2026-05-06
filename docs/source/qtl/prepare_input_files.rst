@@ -1,18 +1,13 @@
 Prepare Input Files
 ===================
 
-.. note::
-
-   THIS IS UNDER DEVELOPMENT
-
-
 1. GWAS summary statistics for a genetic locus of interest
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Overview
 ^^^^^^^^
 
-- To perform a QTL analysis on FUMA, a GWAS summary statistics for a genetic locus of interest is required. 
+- To perform a QTLs analysis on FUMA, a GWAS summary statistics for a genetic locus of interest is required. 
 - The file has to have the following columns in this specific order: CHR, POS, REF, ALT, N, BETA, P, MAF. 
 - Tips: write a script in R or Python to
     - Subset the full GWAS summary statistics using the start and end coordinates that represent a genetic locus of interest
@@ -36,7 +31,7 @@ Overview
             items = line.rstrip("\n").split("\t") #replace with the correct delimiter
             chrom = items[1] #replace with the correct index
             pos = items[2] #replace with the correct index
-            if items[1] == locus_chrom and int(items[2]) >= start and int(items[2]) <= end:
+            if chrom == locus_chrom and int(pos) >= start and int(pos) <= end:
                 alt = items[4] #replace with the correct index
                 ref = items[3] #replace with the correct index
                 n_samples = items[7] #replace with the correct index

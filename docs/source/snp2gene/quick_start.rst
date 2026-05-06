@@ -80,7 +80,7 @@ The rest of part 1
 .. image:: fuma1_perform_eqtl_mapping.png
     :width: 800
 
-- Starting from FUMA version 2, additional different types of QTLs have been added. You need to lick on the button `Perform xQTLs Mapping` to select this option and to be able to select the datasets. 
+- Starting from FUMA version 2, additional different types of QTLs have been added. You need to click on the button `Perform xQTLs Mapping` to select this option and to be able to select the datasets. 
     - The datasets are organized by types of QTLs and tissue types
 
 .. image:: xqtls_mapping_options.png
