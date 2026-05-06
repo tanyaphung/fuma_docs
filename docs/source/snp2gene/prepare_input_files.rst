@@ -61,6 +61,7 @@ Allele columns
 - Whenever alleles are provided, they are matched with dbSNP build 146 if extraction of rsID, chromosome or position is necessary.
 - Alleles are case insensitive.
 
+.. _headers:
 Headers
 ^^^^^^^
 - A header is mandatory
