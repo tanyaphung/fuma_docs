@@ -1,4 +1,4 @@
-DATA AND CODE REPOSITORIES
+Data and code repositories
 ==========================
 
 FUMA code base

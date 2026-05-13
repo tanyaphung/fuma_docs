@@ -1,4 +1,4 @@
-CONTRIBUTING
+Contributing
 ============
 
 Add new scRNA-seq dataset
