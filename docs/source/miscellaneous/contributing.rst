@@ -1,11 +1,5 @@
 CONTRIBUTING
-========
-
-.. note::
-
-   THIS IS UNDER DEVELOPMENT
-
-.. _add_new_scrna:
+============
 
 Add new scRNA-seq dataset
 -------------------------
