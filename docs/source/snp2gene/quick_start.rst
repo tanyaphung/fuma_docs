@@ -88,11 +88,19 @@ The rest of part 1
 .. image:: xqtls_mapping_options.png
     :width: 800
 
-    .. warning::
 
-    The xQTLs mapping functionality only exists in the new submission of SNP2GENE job and does not (yet) exist in the redoing gene mapping. If you wish to redo gene mapping, you can submit a new SNP2GENE job. 
+.. warning::
 
-- The outputs of the xQTLs mapping analysis can be found under the `Results` tab 
+The xQTLs mapping functionality only exists in the new submission of SNP2GENE job and does not (yet) exist in the redoing gene mapping. If you wish to redo gene mapping, you can submit a new SNP2GENE job. 
+
+- The outputs of the xQTLs mapping analysis can be found under the `Results` tab:
+.. image:: xqtls_mapping_table.png
+    :width: 800
+
+- The outputs of xQTLs mapping analysis can be downloaded under the `Download` tab:
+.. image:: xqtls_mapping_download.png
+    :width: 800
+
 
 3.3 3D Chromatin interaction mapping
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
