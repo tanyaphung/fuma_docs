@@ -1,5 +1,5 @@
-CONTRIBUTING
-========
+ADDITIONAL INFORMATION
+======================
 
 .. toctree::
    :maxdepth: 2
