@@ -90,8 +90,7 @@ The rest of part 1
 
 
 .. warning::
-
-The xQTLs mapping functionality only exists in the new submission of SNP2GENE job and does not (yet) exist in the redoing gene mapping. If you wish to redo gene mapping, you can submit a new SNP2GENE job. 
+    The xQTLs mapping functionality only exists in the new submission of SNP2GENE job and does not (yet) exist in the redoing gene mapping. If you wish to redo gene mapping, you can submit a new SNP2GENE job. 
 
 - The outputs of the xQTLs mapping analysis can be found under the `Results` tab:
 .. image:: xqtls_mapping_table.png
