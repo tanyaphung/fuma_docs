@@ -1,4 +1,5 @@
 .. include:: docs/source/snp2gene/prepare_input_files.rst
+.. include:: docs/source/flames/prepare_input_files.rst
 
 Quick start
 ===========
@@ -18,9 +19,10 @@ Upload your GWAS summary statistics
 
 - Click on the `Choose file` button to upload a GWAS summary statistics
     - check :ref:`gwas_sumstat` section on how to corrently prepare the input file
-- Starting from FUMA v2.0, you can check the button `Keep input files after job completion.` in order to run FLAMES after a successful completion of the SNP2GENE job. 
+- Starting from FUMA v2.0.0, you can check the button `Keep input files after job completion.` in order to run FLAMES after a successful completion of the SNP2GENE job. 
     - The default is unchecked, which means that your uploaded input GWAS summary statistics and intermediate files producded by FUMA are removed from the FUMA server as soon as the job finishes. 
     - If this option is checked, your uploaded input GWAS summary statistics and intermediate files that are needed to run FUMA are kept for 7 days. After 7 days, they are deleted from the FUMA server. 
+    - **IMPORTANT**: If you just want to run a SNP2GENE job, please leave this option unchecked. You should **ONLY** check this option if you want to run the FLAMES module within 7 days. If you check this option, make sure to follow :ref:`prepare_input_file` to properly prepare the GWAS summary statistics. Otherwise, FLAMES would fail. 
 
 Specify the column names
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,6 +87,12 @@ The rest of part 1
 
 .. image:: xqtls_mapping_options.png
     :width: 800
+
+    .. warning::
+
+    The xQTLs mapping functionality only exists in the new submission of SNP2GENE job and does not (yet) exist in the redoing gene mapping. If you wish to redo gene mapping, you can submit a new SNP2GENE job. 
+
+- The outputs of the xQTLs mapping analysis can be found under the `Results` tab 
 
 3.3 3D Chromatin interaction mapping
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
