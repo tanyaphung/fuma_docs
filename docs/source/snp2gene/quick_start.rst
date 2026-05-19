@@ -1,5 +1,5 @@
 .. include:: docs/source/snp2gene/prepare_input_files.rst
-.. include:: docs/source/flames/prepare_input_files.rst
+.. include:: docs/source/flames/quick_start.rst
 
 Quick start
 ===========
@@ -22,7 +22,7 @@ Upload your GWAS summary statistics
 - Starting from FUMA v2.0.0, you can check the button `Keep input files after job completion.` in order to run FLAMES after a successful completion of the SNP2GENE job. 
     - The default is unchecked, which means that your uploaded input GWAS summary statistics and intermediate files producded by FUMA are removed from the FUMA server as soon as the job finishes. 
     - If this option is checked, your uploaded input GWAS summary statistics and intermediate files that are needed to run FUMA are kept for 7 days. After 7 days, they are deleted from the FUMA server. 
-    - **IMPORTANT**: If you just want to run a SNP2GENE job, please leave this option unchecked. You should **ONLY** check this option if you want to run the FLAMES module within 7 days. If you check this option, make sure to follow :ref:`prepare_input_file` to properly prepare the GWAS summary statistics. Otherwise, FLAMES would fail. 
+    - **IMPORTANT**: If you just want to run a SNP2GENE job, please leave this option unchecked. You should **ONLY** check this option if you want to run the FLAMES module within 7 days. If you check this option, make sure to follow :ref:`submit_snp2gene_for_flames` to properly prepare the GWAS summary statistics. Otherwise, FLAMES would fail. 
 
 Specify the column names
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,6 +91,50 @@ The rest of part 1
 
 .. warning::
     The xQTLs mapping functionality only exists in the new submission of SNP2GENE job and does not (yet) exist in the redoing gene mapping. If you wish to redo gene mapping, you can submit a new SNP2GENE job. 
+
+- List of datasets available for FUMA v2.0.0:
+
++----------+----------+-------+
+| QTL type | Datasets | Notes |
++==========+==========+=======+
+| eQTL     | GTEx v10 |       |
++----------+----------+-------+
+| eQTL     | Metabrain |       |
++----------+----------+-------+
+| sQTL     | GTEx v10 |       |
++----------+----------+-------+
+| pQTL     | Suhre et al. (Nat. Comm., 2017) |       |
++----------+----------+-------+
+| pQTL     | Sun et al. (PLoS Genetics, 2016) |       |
++----------+----------+-------+
+| pQTL     | Gudjonsson et al. (Nat. Comm., 2022) |       |
++----------+----------+-------+
+| pQTL     | Sun et al. (Nature, 2018) |       |
++----------+----------+-------+
+| pQTL     | Emilsson et al. (Nat. Comm. 2022) |       |
++----------+----------+-------+
+| pQTL     | Katz et al. (Circulation, 2021) |       |
++----------+----------+-------+
+| pQTL     | Ferkingstad et al. (Nature Genetics, 2021) |       |
++----------+----------+-------+
+| pQTL     | Pietzner et al. (Science, 2021) |       |
++----------+----------+-------+
+| pQTL     | Sun et al. (Nature 2023) |       |
++----------+----------+-------+
+| pQTL     | Carland et al. (Clin. Proteom. 2023) |       |
++----------+----------+-------+
+| pQTL     | Niu et al. Nat Genet (2025) |       |
++----------+----------+-------+
+| pQTL     | Yang et al. (Nature Neuroscience, 2021) |       |
++----------+----------+-------+
+| sceQTL     | bryois2022Brain | p value threshold is needed |
++----------+----------+-------+
+| sceQTL     | jerber2021Dopaminergic | p value threshold is needed |
++----------+----------+-------+
+| sceQTL     | SingleBrain |       |
++----------+----------+-------+
+| sceQTL     | Brainscope |       |
++----------+----------+-------+
 
 - The outputs of the xQTLs mapping analysis can be found under the `Results` tab:
 .. image:: xqtls_mapping_table.png

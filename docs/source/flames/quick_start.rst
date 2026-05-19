@@ -3,6 +3,9 @@ Quick start
 
 To run a successful FLAMES job on FUMA, follow the following steps: 
 
+
+.. _submit_snp2gene_for_flames:
+
 1. Submit a SNP2GENE job
 ------------------------
 
