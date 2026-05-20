@@ -1,8 +1,10 @@
 Prepare Input Files
 ===================
 
-1. GWAS summary statistics for a genetic locus of interest
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. _prepare_input_qtl:
+
+GWAS summary statistics for a genetic locus of interest
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Overview
 ^^^^^^^^
