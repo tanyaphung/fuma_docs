@@ -7,7 +7,7 @@ To run a successful QTLs analysis on FUMA, follow the following steps:
 
 1. Upload input file
 --------------------
-- Upload the input file for **a genomic risk locus** (see :ref:`prepare_input_files`) by clicking on the `Choose File` button.
+- Upload the input file for **a genomic risk locus** (see :ref:`prepare_input_qtl`) by clicking on the `Choose File` button.
 - Click on either `GRCh37` or `GRCh38` to select the genome build of your input GWAS summary statistics
 
 .. image:: upload_sumstat.png
