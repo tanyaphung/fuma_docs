@@ -28,14 +28,21 @@ Download and Format  GWAS
 - From the image above, it says A1 is the SNP reference allele and A2 is the SNP alternate allele. This matches with the information from gnomad as well. 
 
 3. Check other columns
+
 - p value is found under column name `PVAL`
+
 - beta is found under column name `BETA`
+
 - Sample sizes: there are 3 columns for sample size in this file: `NCAS`, `NCON`, and `NEFF`. For this practicals, I will define the sample size as equal to the sum of  `NCAS` and `NCON`.
+
 - `FCAS` and `FCON` are the frequency of A1 in cases and controls, respectively. MAF is a required column in the QTLs Analysis, specifically in the colocalization analysis. For now, let's skip MAF.
 
 4. Since it is not clear which MAF we should use for the QTLs Analysis, for now, let's prepare the input GWAS sumstat for running SNP2GENE and FLAMES. 
+
 - For simplicity, I will prepare the input GWAS sumstat for running FLAMES, which I will also use for running a standard SNP2GENE analysis
+
 - Follow the instruction in https://fuma-docs.readthedocs.io/en/latest/flames/quick_start.html#submit-a-snp2gene-job
+
 - Based on the instruction, I will subset the file `PGC3_SCZ_wave3.european.autosome.public.v3.vcf.tsv.gz` to contain the following columns: `CHROM`, `ID`, `POS`, `A1`, `A2`, `BETA`, and `PVAL`. Example codes: 
 
 .. code-block:: python
@@ -69,18 +76,18 @@ Step 1. Run SNP2GENE with MAGMA
     - Make sure to click on the button to keep the input gwas sumstat file for easy implementation of FLAMES
 
     .. image:: scz_2022_upload.png
-    :width: 800
+        :width: 800
 
     - Make sure to put in an integer value for the sample size
 
     .. image:: scz_2022_samplesize.png
-    :width: 800
+        :width: 800
 
     - Section 3-5 can be left as default
 
     - Make sure to check MAGMA in section 6
 
     .. image:: scz_2022_magma.png
-    :width: 800
+        :width: 800
 
 
