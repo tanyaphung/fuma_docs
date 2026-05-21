@@ -76,20 +76,59 @@ Step 1. Run SNP2GENE with MAGMA
 - Submit a SNP2GENE job
 
     - Make sure to click on the button to keep the input gwas sumstat file for easy implementation of FLAMES
-
     .. image:: scz_2022_upload.png
         :width: 800
 
     - Make sure to put in an integer value for the sample size
-
     .. image:: scz_2022_samplesize.png
         :width: 800
 
     - Section 3-5 can be left as default
 
     - Make sure to check MAGMA in section 6
-
     .. image:: scz_2022_magma.png
         :width: 800
 
+    - Put in a title and submit
+    .. image:: scz_2022_submit.png
+        :width: 800
+
+    - Job finished successfully: 
+    .. image:: scz_2022_snp2gene_for_flame_ok.png
+        :width: 800
+
+Step 2. Submit a FLAMES job
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. image:: scz_2022_submit_flames.png
+        :width: 800
+
+
+Run a SNP2GENE job with xQTLs mapping
+-------------------------------------
+- In this section we will run a SNP2GENE job with xQTLs mapping
+
+- In theory, you can combine this with the run for FLAMES. However, it could be the case that MAGMA take a long time. Because each job has a limit of 8 hours, I recommend to run the MAGMA job separately. 
+
+Step 1. Submit a SNP2GENE job
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Make sure to leave the button to keep the input gwas sumstat file **UNCHECKED** (this is the default)
+
+- In step 3, click on **Perform xQTLs Mapping** to expand the options and select the datasets
+    - Because I know apriori that schizophrenia is a brain related phenotype, I will select brain related xQTLs datasets
+        - eQTLs from the brain
+        .. image:: scz_2022_brain_eqtls.png
+        :width: 800
+
+        - sQTLs from the brain
+        .. image:: scz_2022_brain_sqtls.png
+        :width: 800
+
+        - pQTLs from the brain
+        .. image:: scz_2022_brain_pqtls.png
+        :width: 800
+
+
+        - sceQTLs from the brain
+        .. image:: scz_2022_brain_sceqtls.png
+        :width: 800
 
