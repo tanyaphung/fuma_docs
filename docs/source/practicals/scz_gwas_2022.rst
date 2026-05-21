@@ -48,6 +48,7 @@ Download and Format  GWAS
 - Based on the instruction, I will subset the file `PGC3_SCZ_wave3.european.autosome.public.v3.vcf.tsv.gz` to contain the following columns: `CHROM`, `ID`, `POS`, `A1`, `A2`, `BETA`, and `PVAL`. Example codes: 
 
 .. code-block:: python
+    
     import gzip
 
     outfile = open("scz2022_sumstat_fuma.txt", "w")
