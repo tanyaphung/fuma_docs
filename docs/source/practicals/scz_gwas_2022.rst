@@ -20,11 +20,13 @@ Download and Format  GWAS
    :width: 800
 
 1. Check which build, GRCh37 or GRCh38
+
 - Spot check a few variants on gnomad, the chromosome and position matches with GRCh37. For example: 
     - https://gnomad.broadinstitute.org/variant/8-101592213-C-T?dataset=gnomad_r2_1
     - https://gnomad.broadinstitute.org/variant/8-109954636-T-C?dataset=gnomad_r2_1
 
 2. Check which alleles are reference vs alternate
+
 - From the image above, it says A1 is the SNP reference allele and A2 is the SNP alternate allele. This matches with the information from gnomad as well. 
 
 3. Check other columns
