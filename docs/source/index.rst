@@ -18,3 +18,4 @@ Contents
    flames/index
    qtl/index
    miscellaneous/index
+   practicals/index
