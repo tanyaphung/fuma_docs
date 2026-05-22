@@ -9,7 +9,7 @@ To run a successful SNP2GENE job on FUMA, follow the following steps:
 1. Upload input file
 --------------------
 
-- The interphase for uploading your input file: 
+- The interface for uploading your input file: 
 
 .. image:: part1_upload_input_file.png
    :width: 800

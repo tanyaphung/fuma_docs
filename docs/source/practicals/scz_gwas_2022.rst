@@ -118,18 +118,186 @@ Step 1. Submit a SNP2GENE job
     - Because I know apriori that schizophrenia is a brain related phenotype, I will select brain related xQTLs datasets
         - eQTLs from the brain
         .. image:: scz_2022_brain_eqtls.png
-        :width: 800
+            :width: 800
 
         - sQTLs from the brain
         .. image:: scz_2022_brain_sqtls.png
-        :width: 800
+            :width: 800
 
         - pQTLs from the brain
         .. image:: scz_2022_brain_pqtls.png
-        :width: 800
+            :width: 800
 
 
         - sceQTLs from the brain
         .. image:: scz_2022_brain_sceqtls.png
-        :width: 800
+            :width: 800
 
+Analysis: Find predicted relevant genes per genomic risk locus
+--------------------------------------------------------------
+- In this section, we are going to perform follow-up analyses after: 
+    - running a SNP2GENE job to map genes using positional mapping and xQTLs mapping
+    - running a FLAMES job which predicts an effector gene per genomic risk locus
+- We are interested in: which genes are predicted as being relevant for our GWAS when using:
+    - positional mapping
+    - xQTLs mapping
+    - FLAMES
+
+1. Download the result files from SNP2GENE
+- Download `Gene table (mapped genes)` and `xQTLs mapping results`
+
+.. image:: scz_2022_download.png
+    :width: 800
+
+- Then, unzip the folder
+
+2. Download the result file from FLAMES
+
+.. image:: scz_2022_download_flames.png
+    :width: 800
+
+3. Create a directory called `scz_2022` and copy and renames these files 
+
+.. code-block:: bash
+    
+
+    mv genes.txt scz_2022/positional_mapped_genes.txt
+    mv mv xqtls.txt scz_2022/xqtls_mapped_genes.txt
+    mv FLAMES_scores_fmt.pred scz_2022/flames_mapped_genes.txt
+
+- Then, run script `list_predicted_genes_per_locus.py`
+
+.. code-block:: bash
+
+    python list_predicted_genes_per_locus.py --filedir scz_2022/
+
+- The above script returns: 
+    - column 1: genomic risk locus
+    - column 2: whether it is positional (for positional mapping), xqtls (for xqtls mapping), or flames
+    - column 3: the predicted or relevant gene
+    - column 4: only in the xqtls mapping, it returns the name of the datasets
+
+.. tip:: 
+    Analyze each genomic risk locus one at a time
+
+4. Example from genomic risk locus 6
+
+- 3 genes were mapped using positional mapping: 
+
+.. code-block:: bash
+
+    awk -F "," '$1==6{print}' mapped_genes.txt | grep positional
+    6,positional,PTPRF,
+    6,positional,KDM4A,
+    6,positional,ST3GAL3,
+
+- 18 genes where the GWAS hits were also xQTLs: 
+
+.. code-block:: bash
+
+    awk -F "," '$1==6{print}' mapped_genes.txt | grep xqtls | awk -F "," '{print$3}' | sort | uniq
+    ARTN
+    ATP6V0B
+    CCDC24
+    CDC20
+    DPH2
+    ERI3
+    FAM183A
+    HYI
+    IPO13
+    KDM4A
+    MED8
+    PPIH
+    PTPRF
+    ST3GAL3
+    SZT2
+    TIE1
+    TMEM125
+    YBX1
+
+- FLAMES predicted `PTPRF` to be the effector gene
+
+.. code-block:: bash
+
+    awk -F "," '$1==6{print}' mapped_genes.txt | grep flames
+    6,flames,PTPRF,
+
+5. We then can run an QTLs Analysis module on FUMA to gain additional insights on the effects of GWAS variants within genomic risk locus 6
+
+Example running QTLs Analysis 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Obtain the range for genomic risk locus 6
+- You can obtain this from the Results table, under tab `Genomic risk loci`: 
+
+.. image:: scz_2022_locus6.png
+    :width: 800
+
+- the range is chr1:43982527-44378198
+
+2. Subset the GWAS sumstat for this range
+- For illustration purpose, let's use `FCON` as the MAF
+- Example code: 
+
+.. code-block:: bash
+
+    import gzip
+
+    outfile = open("scz2022_sumstat_fuma.txt", "w")
+
+    with gzip.open("PGC3_SCZ_wave3.european.autosome.public.v3.vcf.tsv.gz", "rt") as f:
+        for line in f:
+            if line.startswith("#"):
+                continue
+            fields = line.strip().split("\t")
+            chrom = fields[0]
+            pos = fields[2]
+            id = fields[1]
+            a1 = fields[3]
+            a2 = fields[4]
+            beta = fields[8]
+            pval = fields[10]
+            print("\t".join([chrom, id, pos, a1, a2, beta, pval]), file=outfile)
+
+
+3. Submit a QTLs Analysis job for genomic risk locus 6
+- We can use the results from the `xQTLs mapping` to inform our selection of datasets. For example: 
+
+.. code-block:: bash
+
+    awk -F "," '$1==6{print}' mapped_genes.txt | grep xqtls | awk -F "," '{print$4}' | sort | uniq
+    eQTL:Brain_Cerebellar_Hemisphere
+    eQTL:Brain_Cerebellum
+    eQTL:Brain_Cortex
+    eQTL:Brain_Frontal_Cortex_BA9
+    eQTL:Brain_cerebellum
+    eQTL:Brain_cortex
+    sceQTL:Brain_brainscope_L2.3.IT
+    sceQTL:Brain_bryois2022Brain_Astrocytes
+    sceQTL:Brain_bryois2022Brain_Endothelial.cells
+    sceQTL:Brain_bryois2022Brain_Excitatory.neurons
+    sceQTL:Brain_bryois2022Brain_OPCs
+    sceQTL:Brain_jerber2021Dopaminergic_D11.FPP
+    sceQTL:Brain_jerber2021Dopaminergic_D11.P_FPP
+    sceQTL:Brain_jerber2021Dopaminergic_D30.DA
+    sceQTL:Brain_jerber2021Dopaminergic_D30.Epen1
+    sceQTL:Brain_jerber2021Dopaminergic_D30.FPP
+    sceQTL:Brain_jerber2021Dopaminergic_D30.Sert
+    sceQTL:Brain_jerber2021Dopaminergic_D52.Epen1.ROT_treated
+    sceQTL:Brain_jerber2021Dopaminergic_D52.Epen1.untreated
+    sceQTL:Brain_jerber2021Dopaminergic_D52.Sert.ROT_treated
+    sceQTL:Brain_jerber2021Dopaminergic_D52.Sert.untreated
+    sceQTL:Brain_jerber2021Dopaminergic_D52.pseudobulk.untreated
+    sceQTL:Brain_singlebrain_Ast
+    sceQTL:Brain_singlebrain_Ext3
+    sceQTL:Brain_singlebrain_Ext5
+    sceQTL:Brain_singlebrain_Ext7
+    sceQTL:Brain_singlebrain_MG2
+    sceQTL:Brain_singlebrain_MiGA3
+
+- Note that the datasets from single brain can only be implemented with LAVA currently.
+
+- Submit a FLAMES job: 
+
+    .. image:: scz_2022_locus6_qtlsAnalysis.png
+    :width: 800
