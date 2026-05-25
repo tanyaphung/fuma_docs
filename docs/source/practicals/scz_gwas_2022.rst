@@ -37,9 +37,9 @@ Download and Format  GWAS
 
 - Sample sizes: there are 3 columns for sample size in this file: `NCAS`, `NCON`, and `NEFF`. For this practicals, I will define the sample size as equal to the sum of  `NCAS` and `NCON`.
 
-- `FCAS` and `FCON` are the frequency of A1 in cases and controls, respectively. MAF is a required column in the QTLs Analysis, specifically in the colocalization analysis. For now, let's skip MAF.
+- `FCAS` and `FCON` are the frequency of A1 in cases and controls, respectively. 
 
-4. Since it is not clear which MAF we should use for the QTLs Analysis, for now, let's prepare the input GWAS sumstat for running SNP2GENE and FLAMES. 
+4. Let's prepare the input GWAS sumstat for running SNP2GENE and FLAMES. 
 
 - For simplicity, I will prepare the input GWAS sumstat for running FLAMES, which I will also use for running a standard SNP2GENE analysis
 
@@ -265,35 +265,34 @@ Example running QTLs Analysis
 
 .. code-block:: bash
 
-    awk -F "," '$1==6{print}' mapped_genes.txt | grep xqtls | awk -F "," '{print$4}' | sort | uniq
-    eQTL:Brain_Cerebellar_Hemisphere
-    eQTL:Brain_Cerebellum
-    eQTL:Brain_Cortex
-    eQTL:Brain_Frontal_Cortex_BA9
-    eQTL:Brain_cerebellum
-    eQTL:Brain_cortex
-    sceQTL:Brain_brainscope_L2.3.IT
-    sceQTL:Brain_bryois2022Brain_Astrocytes
-    sceQTL:Brain_bryois2022Brain_Endothelial.cells
-    sceQTL:Brain_bryois2022Brain_Excitatory.neurons
-    sceQTL:Brain_bryois2022Brain_OPCs
-    sceQTL:Brain_jerber2021Dopaminergic_D11.FPP
-    sceQTL:Brain_jerber2021Dopaminergic_D11.P_FPP
-    sceQTL:Brain_jerber2021Dopaminergic_D30.DA
-    sceQTL:Brain_jerber2021Dopaminergic_D30.Epen1
-    sceQTL:Brain_jerber2021Dopaminergic_D30.FPP
-    sceQTL:Brain_jerber2021Dopaminergic_D30.Sert
-    sceQTL:Brain_jerber2021Dopaminergic_D52.Epen1.ROT_treated
-    sceQTL:Brain_jerber2021Dopaminergic_D52.Epen1.untreated
-    sceQTL:Brain_jerber2021Dopaminergic_D52.Sert.ROT_treated
-    sceQTL:Brain_jerber2021Dopaminergic_D52.Sert.untreated
-    sceQTL:Brain_jerber2021Dopaminergic_D52.pseudobulk.untreated
-    sceQTL:Brain_singlebrain_Ast
-    sceQTL:Brain_singlebrain_Ext3
-    sceQTL:Brain_singlebrain_Ext5
-    sceQTL:Brain_singlebrain_Ext7
-    sceQTL:Brain_singlebrain_MG2
-    sceQTL:Brain_singlebrain_MiGA3
+    eQTL:gtex_v10:Brain_Cerebellar_Hemisphere
+    eQTL:gtex_v10:Brain_Cerebellum
+    eQTL:gtex_v10:Brain_Cortex
+    eQTL:gtex_v10:Brain_Frontal_Cortex_BA9
+    eQTL:metabrain:Brain_cerebellum
+    eQTL:metabrain:Brain_cortex
+    sceQTL:brainscope:Brain_brainscope_L2.3.IT
+    sceQTL:bryois2022Brain:Brain_bryois2022Brain_Astrocytes
+    sceQTL:bryois2022Brain:Brain_bryois2022Brain_Endothelial.cells
+    sceQTL:bryois2022Brain:Brain_bryois2022Brain_Excitatory.neurons
+    sceQTL:bryois2022Brain:Brain_bryois2022Brain_OPCs
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D11.FPP
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D11.P_FPP
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D30.DA
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D30.Epen1
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D30.FPP
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D30.Sert
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D52.Epen1.ROT_treated
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D52.Epen1.untreated
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D52.Sert.ROT_treated
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D52.Sert.untreated
+    sceQTL:jerber2021Dopaminergic:Brain_jerber2021Dopaminergic_D52.pseudobulk.untreated
+    sceQTL:singlebrain:Brain_singlebrain_Ast
+    sceQTL:singlebrain:Brain_singlebrain_Ext3
+    sceQTL:singlebrain:Brain_singlebrain_Ext5
+    sceQTL:singlebrain:Brain_singlebrain_Ext7
+    sceQTL:singlebrain:Brain_singlebrain_MG2
+    sceQTL:singlebrain:Brain_singlebrain_MiGA3
 
 - Note that the datasets from single brain can only be implemented with LAVA currently.
 

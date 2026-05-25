@@ -11,6 +11,9 @@ Overview
 
 - To perform a QTLs analysis on FUMA, a GWAS summary statistics for a genetic locus of interest is required. 
 - The file has to have the following columns in this specific order: CHR, POS, REF, ALT, N, BETA, P, MAF. 
+- Delimiter is a tab character.
+- The file is not zipped.
+- The file size needs to be less than 10Mb. Because this file is subsetted for a single genomic risk locus, this file should be relatively small. 
 - Tips: write a script in R or Python to
     - Subset the full GWAS summary statistics using the start and end coordinates that represent a genetic locus of interest
     - Select the 8 columns: CHR, POS, REF, ALT, N, BETA, P, MAF
