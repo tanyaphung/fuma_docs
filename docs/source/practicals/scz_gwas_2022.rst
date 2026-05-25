@@ -165,7 +165,7 @@ Analysis: Find predicted relevant genes per genomic risk locus
     mv mv xqtls.txt scz_2022/xqtls_mapped_genes.txt
     mv FLAMES_scores_fmt.pred scz_2022/flames_mapped_genes.txt
 
-- Then, run script `list_predicted_genes_per_locus.py`
+- Then, run script `list_predicted_genes_per_locus.py` (available at: https://github.com/tanyaphung/commonly_used_codes/tree/master/fuma_related/list_predicted_genes)
 
 .. code-block:: bash
 
