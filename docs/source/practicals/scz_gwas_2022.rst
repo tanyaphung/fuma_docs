@@ -296,7 +296,7 @@ Example running QTLs Analysis
 
 - Note that the datasets from single brain can only be implemented with LAVA currently.
 
-- Submit a FLAMES job: 
+- Submit a QTLs Analysis job: 
 
     .. image:: scz_2022_locus6_qtlsAnalysis.png
     :width: 800
