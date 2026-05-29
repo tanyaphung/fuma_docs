@@ -5,6 +5,66 @@ Prepare Input Files
 1. GWAS summary statistics
 ++++++++++++++++++++++++++
 
+TL;DR
+^^^^^
+
+- Prior to submitting your GWAS summary statistics (hereafter GWAS sumstat) to FUMA, to avoid error in file input format, follow these steps. 
+
+1. Open and view your GWAS sumstat in a bash terminal (or in some editor like notepad++)
+2. Checklist: 
+- What columns are present in the GWAS sumstat file? 
+   - For a vanilla SNP2GENE job, the required information per rows are: variant id and p value. Variant id is defined in many ways. You can have: 
+      - chr:pos (position is in build GRCh37)
+      - chr:pos:rsID (position is in build in GRCh37)
+      - rsID
+   - If your GWAS sumstat file does not have the required information, the job will fail. 
+   - Check :ref:`mandatory_columns` for specifics
+
+- Note down the name of the columns
+   - What is the name of the column for p value? Is it pval, pvalues, p-values, or p or something else? Make a note of this
+   - Similarly, what is the name of the columns for chromosome, position, rsID, effect allele, non effect allele, or, beta, and se. Make a note of this
+   - The reason for this is that it is best practice to fill in the name of the columns from your gwas sumstat as much as possible, to ensure accuracy and performance: 
+
+   .. image:: snp2gene_colnames.png
+      :width: 400
+
+   - If you choose not to fill in the name of the columns, FUMA tries to detect this based on common naming convention. Check :ref:`headers` for specifics. 
+
+- If your gwas sumstat has chromosomme and position, **check which build, GRCh37 or GRCh38**
+   - Check :ref:`genome_build` if your gwas sumstat is in GRCh38
+
+- Is there a value for sample size in your gwas sumstat? 
+   - If yes, you can put in the name of the sample size column in section 2. For example: 
+   .. image:: snp2gene_samplesize_name.png
+      :width: 400
+
+   .. warning::
+      If you put in **NEFF** as the name of the column for sample size, and if this column does not exist, your job will fail.
+
+
+   - If no, you can put in the value (integer). For example: 
+   .. image:: snp2gene_samplesize_val.png
+      :width: 400
+
+.. tip::
+   1. Make sure that there is a header (column name) in the GWAS sumstat.
+      - The header should not start with a comment character (#) because any lines that starts with # will be ignored.
+      - The number of column names need to be equal to the number of columns in your input file.
+         - if the input file has a row index, this means that there is one fewer column name in the header as compared to when the actual data starts.
+         - to fix this, one needs to save the data specifying `index=False` (the syntax depends on the specific language)
+   2. rsID if exists has to be in rsID format and not chr:pos:a1:a2 format
+   3. Use gzip software to compress with .gz extension or ZIP software with .zip extension. Make sure you haven't renamed the file manually. Use the proper compression software instead.
+   4. The chromosome has to be numbers between 1 and 23 or X. Any variant with a chromosome name that deviates from 1 to 23 or X will fail. 
+   5. Position values have to be integer (not in scientific notation)
+   6. If your file contains chromosome and position, these have to be in GRCh37 coordinates.
+   7. Make sure that there is no missing data for the columns that are mandatory such as p-values
+   8. If you specify the name of chromosome, position, etc… during submission, make sure that these names exist in your input file
+   9. Make sure that the delimiter is consistent. In addition, delimiter can be any of white space including single space, multiple space and tab. Because of this, each element including column names must not include any space
+   10. Check your file to make sure that there is no quotation around each value. It should be for example 1 instead of "1". This is usually caused when you save a file in R. To avoid this, one needs to set `quote=F` when saving a file in R. 
+      If your file is larger than 600Mb, gzip it
+   11. After gzipping, if your file is still larget than 600Mb, remove unnessary columns
+   
+
 Overview
 ^^^^^^^^
 
@@ -30,14 +90,18 @@ Overview
 
 - Below are some more specific information to help with preparing the input GWAS sumstat
 
+.. _genome_build:
 Genome Build
 ^^^^^^^^^^^^
 - The reference data used by FUMA is on build GRCh37 (hg19).
 - If your data is build GRCh37, you can upload your file.
 - If your data is build GRCh38, you can: 
    - use UCSC liftover tool to lift over from GRCh38 to GRCh37, OR: 
-   - if your input GWAS sumstat file contains rsID, you can still submit to FUMA by first make sure that chromosome and position columns are not present. 
+   - if your input GWAS sumstat file contains rsID, you can still submit to FUMA by first make sure that **chromosome and position columns are not present**. 
       - in this case, FUMA will use the provided rsID to look up the chromosomes and positions using dbSNP
+
+      .. warning::
+      IMPORTANT: make sure to completely remove the chromosome and position (in GRCh38) if present in your gwas sumstat 
 
 
 .. _mandatory_columns:
@@ -92,24 +156,6 @@ Delimiter
 ^^^^^^^^^
 Delimiter can be any of white space including single space, multiple space and tab. Because of this, each element including column names must not include any space.
 
-Tips
-^^^^
-1. Make sure that there is a header (column name) in the input GWAS sumstat.
-
-   - The header should not start with a comment character (#) because any lines that starts with # will be ignored.
-   - The number of column names need to be equal to the number of columns in your input file.
-
-      - if the input file has a row index, this means that there is one fewer column name in the header as compared to when the actual data starts.
-      - to fix this, one needs to save the data specifying `index=False` (the syntax depends on the specific language)
-2. rsID if exists has to be in rsID format and not chr:pos:a1:a2 format
-3. Use gzip software to compress with .gz extension or ZIP software with .zip extension. Make sure you haven't renamed the file manually. Use the proper compression software instead.
-4. The chromosome has to be numbers between 1 and 23 or X. Any variant with a chromosome name that deviates from 1 to 23 or X may cause failure. 
-5. Position values have to be integer (not in scientific notation)
-6. If your file contains chromosome and position, these have to be in hg19 coordinates.
-7. Make sure that there is no missing data for the columns that are mandatory such as p-values
-8. If you specify the name of chromosome, position, etc… during submission, make sure that these names exist in your input file
-9. Make sure that the delimiter is consistent. In addition, Delimiter can be any of white space including single space, multiple space and tab. Because of this, each element including column names must not include any space
-10. Check your file to make sure that there is no quotation around each value. It should be for example 1 instead of "1". This is usually caused when you save a file in R. To avoid this, one needs to set `quote=F` when saving a file in R. 
 
 2. Pre-defined lead SNPs
 ++++++++++++++++++++++++
