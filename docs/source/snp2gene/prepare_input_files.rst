@@ -11,9 +11,11 @@ TL;DR
 - Prior to submitting your GWAS summary statistics (hereafter GWAS sumstat) to FUMA, to avoid error in file input format, follow these steps. 
 
 1. Open and view your GWAS sumstat in a bash terminal (or in some editor like notepad++)
+
 2. Checklist: 
+
 - What columns are present in the GWAS sumstat file? 
-   - For a vanilla SNP2GENE job, the required information per rows are: variant id and p value. Variant id is defined in many ways. You can have: 
+   - For a vanilla SNP2GENE job, the required information per rows are: variant id and p value. Variant id can be defined in many ways. You can have: 
       - chr:pos (position is in build GRCh37)
       - chr:pos:rsID (position is in build in GRCh37)
       - rsID
@@ -26,7 +28,7 @@ TL;DR
    - The reason for this is that it is best practice to fill in the name of the columns from your gwas sumstat as much as possible, to ensure accuracy and performance: 
 
    .. image:: snp2gene_colnames.png
-      :width: 400
+      :width: 650
 
    - If you choose not to fill in the name of the columns, FUMA tries to detect this based on common naming convention. Check :ref:`headers` for specifics. 
 
@@ -36,7 +38,7 @@ TL;DR
 - Is there a value for sample size in your gwas sumstat? 
    - If yes, you can put in the name of the sample size column in section 2. For example: 
    .. image:: snp2gene_samplesize_name.png
-      :width: 400
+      :width: 650
 
    .. warning::
       If you put in **NEFF** as the name of the column for sample size, and if this column does not exist, your job will fail.
@@ -44,10 +46,11 @@ TL;DR
 
    - If no, you can put in the value (integer). For example: 
    .. image:: snp2gene_samplesize_val.png
-      :width: 400
+      :width: 650
 
 .. tip::
    1. Make sure that there is a header (column name) in the GWAS sumstat.
+
       - The header should not start with a comment character (#) because any lines that starts with # will be ignored.
       - The number of column names need to be equal to the number of columns in your input file.
          - if the input file has a row index, this means that there is one fewer column name in the header as compared to when the actual data starts.
@@ -61,7 +64,8 @@ TL;DR
    8. If you specify the name of chromosome, position, etc… during submission, make sure that these names exist in your input file
    9. Make sure that the delimiter is consistent. In addition, delimiter can be any of white space including single space, multiple space and tab. Because of this, each element including column names must not include any space
    10. Check your file to make sure that there is no quotation around each value. It should be for example 1 instead of "1". This is usually caused when you save a file in R. To avoid this, one needs to set `quote=F` when saving a file in R. 
-      If your file is larger than 600Mb, gzip it
+      
+      - If your file is larger than 600Mb, gzip it
    11. After gzipping, if your file is still larget than 600Mb, remove unnessary columns
    
 
