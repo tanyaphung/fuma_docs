@@ -45,3 +45,18 @@ Overview
                 maf = items[5] #replace with the correct index
                 print("\t".join([chrom, pos, ref, alt, n_samples, beta, p, maf]), file=outfile)
     outfile.close()
+
+.. tip:: 
+    Use a programming language such as R or Python to prepare your input file
+
+- Example input file: 
+
+.. code-block:: bash
+
+    CHR     POS     REF     ALT     N       BETA    P       MAF
+    8       25243213        G       A       716517  0.0621  5.534e-07       0.6976
+    8       25243984        G       A       716517  -0.0175 0.7148  0.9827
+    8       25244245        G       A       716517  -0.0391 0.5636  0.9888
+    8       25244270        G       C       716517  0.0257  0.03354 0.3088
+    8       25244326        C       A       716517  0.0256  0.03399 0.3090
+
