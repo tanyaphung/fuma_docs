@@ -21,7 +21,7 @@ Upload your GWAS summary statistics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Click on the `Choose file` button to upload a GWAS summary statistics
-    - check :ref:`gwas_sumstat_37` section on how to correctly prepare the input file
+    - check :ref:`_guidelines` section on how to correctly prepare the input file
 - Starting from FUMA v2.0.0, you can check the button `Keep input files after job completion.` in order to run FLAMES after a successful completion of the SNP2GENE job. 
     - The default is unchecked, which means that your uploaded input GWAS summary statistics and intermediate files producded by FUMA are removed from the FUMA server as soon as the job finishes. 
     - If this option is checked, your uploaded input GWAS summary statistics and intermediate files that are needed to run FUMA are kept for 7 days. After 7 days, they are deleted from the FUMA server. 
@@ -55,7 +55,7 @@ Upload your GWAS summary statistics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Click on the `Choose file` button to upload a GWAS summary statistics
-    - check :ref:`gwas_sumstat_38` section on how to corrently prepare the input file
+    - check :ref:`_guidelines` section on how to corrently prepare the input file
 
 - Click on the `Input file is in GRCh38.` button to indicate that your file is in GRCh38
 
@@ -303,7 +303,7 @@ Example 2. 6 colums
 ~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
-    
+
     chromosome      base_pair_location      effect_allele   other_allele    beta    p_value
     21      13086116        T       C       -0.1844 0.3811
     21      13143418        T       C       0.1984  0.3467

@@ -4,6 +4,7 @@ Prepare Input Files
 1. GWAS summary statistics
 ++++++++++++++++++++++++++
 
+.. _guidelines:
 Guidelines:
 ^^^^^^^^^^^
 
@@ -12,8 +13,6 @@ Guidelines:
 1. Open and view your GWAS sumstat in a bash terminal (or in some editor like notepad++) to get an idea of what columns are present, what the column names are, and what the values look like.
 
 2. Check the genome build of your GWAS sumstat. Is it in GRCh37 or GRCh38?
-
-.. _gwas_sumstat_37:
 
 3. If your GWAS sumstat is in GRCh37: 
 
@@ -39,15 +38,13 @@ Guidelines:
 
 - If you choose not to fill in the name of the columns, FUMA tries to detect this based on common naming convention. Check :ref:`headers` for specifics. 
 
-.. _gwas_sumstat_38:
-
 4. If your GWAS sumstat is in GRCh38:
 
 - if your input GWAS sumstat file contains rsID, you can submit to FUMA by first removing the **chromosome** and **position** before submitting to FUMA. 
    - in this case, FUMA will use the provided rsID to look up the chromosomes and positions using dbSNP version 146
 
    .. warning::
-   IMPORTANT: make sure to completely remove the chromosome and position (in GRCh38) if present in your gwas sumstat.
+      IMPORTANT: make sure to completely remove the chromosome and position (in GRCh38) if present in your gwas sumstat.
 
 - if your input GWAS sumstat file does not contain rsID (and only chromosome and position in GRCh38), you can submit to FUMA if your file: 
    - 1. Contain only 3 columns with the following column names in this order: **chromosome**, **base_pair_location**, **p_value**
