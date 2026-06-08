@@ -14,11 +14,14 @@ To run a successful SNP2GENE job on FUMA, follow the following steps:
 .. image:: part1_upload_input_file.png
    :width: 800
 
+If your GWAS sumstat is in GRCh37
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Upload your GWAS summary statistics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Click on the `Choose file` button to upload a GWAS summary statistics
-    - check :ref:`gwas_sumstat` section on how to corrently prepare the input file
+    - check :ref:`gwas_sumstat_37` section on how to correctly prepare the input file
 - Starting from FUMA v2.0.0, you can check the button `Keep input files after job completion.` in order to run FLAMES after a successful completion of the SNP2GENE job. 
     - The default is unchecked, which means that your uploaded input GWAS summary statistics and intermediate files producded by FUMA are removed from the FUMA server as soon as the job finishes. 
     - If this option is checked, your uploaded input GWAS summary statistics and intermediate files that are needed to run FUMA are kept for 7 days. After 7 days, they are deleted from the FUMA server. 
@@ -45,8 +48,24 @@ Specify the column names
     .. image:: example_input_parameters.png
         :width: 600
 
+If your GWAS sumstat is in GRCh38
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Upload your GWAS summary statistics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Click on the `Choose file` button to upload a GWAS summary statistics
+    - check :ref:`gwas_sumstat_38` section on how to corrently prepare the input file
+
+- Click on the `Input file is in GRCh38.` button to indicate that your file is in GRCh38
+
+Specify the column names
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+- DO NOT FILL IN THIS PART
+
 The rest of part 1
-~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^
 - For a simple SNP2GENE job, the rest of the options can be left as default. 
 
 2. Parameters for lead SNPs and candidate SNPs identification
@@ -189,3 +208,99 @@ The rest of part 1
 ---------
 
 - After all the mandatory information is filled/uploaded, you can click on the `Submit Job` button. 
+
+9. View log file
+----------------
+
+- You can download the log file of each job (only for jobs created after FUMA version 2.1.0)
+- Note that the log file currently logs the processing of the GWAS sumstat file. Additional log will be added in future release. 
+
+.. image:: snp2gene_logs.png
+    :width: 800
+
+10. Examples of GWAS sumstat for SNP2GENE
+-----------------------------------------
+
+GRCh37
+^^^^^^
+
+Example 1. All 6 columns are present
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- 6 columns are present: chromosome, position, effect allele, non effect allele, rsID, and pval
+
+.. code-block:: bash
+    CHROM   ID      POS     A1      A2      BETA    PVAL
+    21      rs148082907     16647205        T       C       -0.0638027918527484     0.06351
+    21      rs2823892       17948888        T       A       0.0125015292229252      0.5092
+    21      rs76775116      15453489        G       A       0.0176041339483571      0.5157
+    21      rs2747364       14769046        A       G       -0.00359645951440505    0.7272
+    21      rs2823451       17060281        T       A       -0.0139975096438537     0.1752
+
+- Specify the names of the columns 
+
+.. image:: example_6cols_names.png
+    :width: 800
+
+Example 2. Only rsID is missing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+    CHROM   POS     A1      A2      BETA    PVAL
+    21      16647205        T       C       -0.0638027918527484     0.06351
+    21      17948888        T       A       0.0125015292229252      0.5092
+    21      15453489        G       A       0.0176041339483571      0.5157
+    21      14769046        A       G       -0.00359645951440505    0.7272
+    21      17060281        T       A       -0.0139975096438537     0.1752
+
+- FUMA looks up rsID from the reference panel for the select population. If rsID is not found, ID is chr:pos:A1:A2
+
+Example 3. When either effect allele or non effect allele or both are missing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+    CHROM   POS     A1      BETA    PVAL
+    21      16647205        T       -0.0638027918527484     0.06351
+    21      17948888        T       0.0125015292229252      0.5092
+    21      15453489        G       0.0176041339483571      0.5157
+    21      14769046        A       -0.00359645951440505    0.7272
+    21      17060281        T       -0.0139975096438537     0.1752
+
+- FUMA looks up rsID from the reference panel for the select population. Check the log files to see which variants are dropped. 
+
+Example 3. Chromosome and Position are missing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+    ID      BETA    PVAL
+    rs148082907     -0.0638027918527484     0.06351
+    rs2823892       0.0125015292229252      0.5092
+    rs76775116      0.0176041339483571      0.5157
+    rs2747364       -0.00359645951440505    0.7272
+    rs2823451       -0.0139975096438537     0.1752
+
+- FUMA looks up chromosome, position, effect allele, and non effect allele if needed from dbSNP version 146. 
+
+GRCh38
+^^^^^^
+
+Example 1. 3 colums
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+    chromosome      base_pair_location      p_value
+    21      13086116        0.3811
+    21      13143418        0.3467
+    21      13226318        0.1995
+    21      13226514        0.198
+    21      13228955        0.1008
+
+Example 2. 6 colums
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+    chromosome      base_pair_location      effect_allele   other_allele    beta    p_value
+    21      13086116        T       C       -0.1844 0.3811
+    21      13143418        T       C       0.1984  0.3467
+    21      13226318        T       G       0.203   0.1995
+    21      13226514        A       G       0.2038  0.198
+    21      13228955        T       TG      -0.4733 0.1008

@@ -1,52 +1,75 @@
 Prepare Input Files
 ===================
 
-.. _gwas_sumstat:
 1. GWAS summary statistics
 ++++++++++++++++++++++++++
 
-TL;DR
-^^^^^
+Guidelines:
+^^^^^^^^^^^
 
-- Prior to submitting your GWAS summary statistics (hereafter GWAS sumstat) to FUMA, to avoid error in file input format, follow these steps. 
+- Prior to submitting your GWAS summary statistics (hereafter GWAS sumstat) to FUMA SNP2GENE, to avoid error, follow these steps: 
 
-1. Open and view your GWAS sumstat in a bash terminal (or in some editor like notepad++)
+1. Open and view your GWAS sumstat in a bash terminal (or in some editor like notepad++) to get an idea of what columns are present, what the column names are, and what the values look like.
 
-2. Checklist: 
+2. Check the genome build of your GWAS sumstat. Is it in GRCh37 or GRCh38?
 
-- What columns are present in the GWAS sumstat file? 
-   - For a vanilla SNP2GENE job, the required information per rows are: variant id and p value. Variant id can be defined in many ways. You can have: 
-      - chr:pos (position is in build GRCh37)
-      - chr:pos:rsID (position is in build in GRCh37)
-      - rsID
-   - If your GWAS sumstat file does not have the required information, the job will fail. 
-   - Check :ref:`mandatory_columns` for specifics
+.. _gwas_sumstat_37:
+3. If your GWAS sumstat is in GRCh37: 
 
-- Note down the name of the columns
-   - What is the name of the column for p value? Is it pval, pvalues, p-values, or p or something else? Make a note of this
-   - Similarly, what is the name of the columns for chromosome, position, rsID, effect allele, non effect allele, or, beta, and se. Make a note of this
-   - The reason for this is that it is best practice to fill in the name of the columns from your gwas sumstat as much as possible, to ensure accuracy and performance: 
+- Is there a header? 
+- Is there a column for chromosome? What is the column name? 
+- Is there a column for position? What is the column name? 
+- Is there a column for rsID? What is the column name? 
+- Is there a column for p value? What is the column name? 
 
-   .. image:: snp2gene_colnames.png
-      :width: 650
+..warning::
+   Either **chromosome** and **position** OR **rsID** AND **p value** have to be present
 
-   - If you choose not to fill in the name of the columns, FUMA tries to detect this based on common naming convention. Check :ref:`headers` for specifics. 
+- Is there a column for effect allele? What is the column name? 
+- Is there a column for non effect allele? What is the column name? 
+- Is there a column for beta? What is the column name? 
+- Is there a column for odds ratio? What is the column name? 
+- Is there a column for standard error? What is the column name? 
 
-- If your gwas sumstat has chromosomme and position, **check which build, GRCh37 or GRCh38**
-   - Check :ref:`genome_build` if your gwas sumstat is in GRCh38
+- Fill in the name of the columns from your gwas sumstat as much as possible, to ensure accuracy and performance: 
 
-- Is there a value for sample size in your gwas sumstat? 
-   - If yes, you can put in the name of the sample size column in section 2. For example: 
-   .. image:: snp2gene_samplesize_name.png
-      :width: 650
+.. image:: snp2gene_colnames.png
+   :width: 650
+
+- If you choose not to fill in the name of the columns, FUMA tries to detect this based on common naming convention. Check :ref:`headers` for specifics. 
+
+.. _gwas_sumstat_38:
+4. If your GWAS sumstat is in GRCh38:
+- if your input GWAS sumstat file contains rsID, you can submit to FUMA by first removing the **chromosome** and **position** before submitting to FUMA. 
+   - in this case, FUMA will use the provided rsID to look up the chromosomes and positions using dbSNP version 146
 
    .. warning::
-      If you put in **NEFF** as the name of the column for sample size, and if this column does not exist, your job will fail.
+   IMPORTANT: make sure to completely remove the chromosome and position (in GRCh38) if present in your gwas sumstat.
+
+- if your input GWAS sumstat file does not contain rsID (and only chromosome and position in GRCh38), you can submit to FUMA if your file: 
+   - 1. Contain only 3 columns with the following column names in this order: **chromosome**, **base_pair_location**, **p_value**
+   - 2. Contain 6 columns with the follwing column names in this order: **chromosome**, **base_pair_location**, **effect_allele**, **other_allele**, **beta**, **p_value**
+
+   .. tip::
+      Use a scripting language such as R or Python to select the columns and rename the column names to be compatible
+
+   - Click on option to select GRCh38 in the job submission page: 
+
+   .. image:: submit_page_grch38.png
+      :width: 800
+
+5. Is there a value for sample size in your gwas sumstat? 
+- If yes, you can put in the name of the sample size column in section 2. For example: 
+.. image:: snp2gene_samplesize_name.png
+   :width: 650
+
+.. warning::
+   If you put in **NEFF** as the name of the column for sample size, and if this column does not exist, your job will fail.
 
 
-   - If no, you can put in the value (integer). For example: 
-   .. image:: snp2gene_samplesize_val.png
-      :width: 650
+- If no, you can put in the value (integer). For example: 
+.. image:: snp2gene_samplesize_val.png
+   :width: 650
 
 .. tip::
    1. Make sure that there is a header (column name) in the GWAS sumstat.
@@ -57,26 +80,19 @@ TL;DR
          - to fix this, one needs to save the data specifying `index=False` (the syntax depends on the specific language)
    2. rsID if exists has to be in rsID format and not chr:pos:a1:a2 format
    3. Use gzip software to compress with .gz extension or ZIP software with .zip extension. Make sure you haven't renamed the file manually. Use the proper compression software instead.
-   4. The chromosome has to be numbers between 1 and 23 or X. Any variant with a chromosome name that deviates from 1 to 23 or X will fail. 
-   5. Position values have to be integer (not in scientific notation)
-   6. If your file contains chromosome and position, these have to be in GRCh37 coordinates.
-   7. Make sure that there is no missing data for the columns that are mandatory such as p-values
-   8. If you specify the name of chromosome, position, etc… during submission, make sure that these names exist in your input file
-   9. Make sure that the delimiter is consistent. In addition, delimiter can be any of white space including single space, multiple space and tab. Because of this, each element including column names must not include any space
-   10. Check your file to make sure that there is no quotation around each value. It should be for example 1 instead of "1". This is usually caused when you save a file in R. To avoid this, one needs to set `quote=F` when saving a file in R. 
-      
-      - If your file is larger than 600Mb, gzip it
-   11. After gzipping, if your file is still larget than 600Mb, remove unnessary columns
-   
+
+      - After gzipping, if your file is still larget than 600Mb, remove unnessary columns
+   4. The chromosome has to be numbers between 1 and 23 or X. Any variant with a chromosome name that deviates from 1 to 23 or X will be removed. 
+   5. Position values have to be integer (not in scientific notation). Position values that are not an interger will be removed. 
+   6. Make sure that there is no missing data for the columns that are mandatory such as p-values
+   7. If you specify the name of chromosome, position, etc… during submission, make sure that these names exist in your input file
+   8. Make sure that the delimiter is consistent. In addition, delimiter can be any of white space including single space, multiple space and tab. Because of this, each element including column names must not include any space
+   9. Check your file to make sure that there is no quotation around each value. It should be for example 1 instead of "1". This is usually caused when you save a file in R. To avoid this, one needs to set `quote=F` when saving a file in R. 
 
 Overview
 ^^^^^^^^
 
 - GWAS summary statistics (GWAS sumstat) is a mandatory input of SNP2GENE module. 
-- FUMA accepts various types of format. For example, PLINK, SNPTEST, and METAL output formats can be used as is. 
-- Otherwise, the input GWAS sumstat has to have these columns (more information in the :ref:`mandatory_columns` section):
-   - chromosome, position (in hg19), and p values OR
-   - rsID and p values
 - Every row should contain information for one SNP. 
 - An input GWAS sumstat could contain only subset of SNPs (e.g. SNPs of interest for your study to annotate them), but in this case, results of MAGMA will not be relevant anymore.
 - Any variants that do not exist in the selected reference panel will not be included in any analyses. The 1000G reference panel is provided in the Download page (https://fuma.ctglab.nl/downloadPage) (scroll to the section Reference panel data).
@@ -93,20 +109,6 @@ Overview
    gzip {gwas/sum/stat}
 
 - Below are some more specific information to help with preparing the input GWAS sumstat
-
-.. _genome_build:
-Genome Build
-^^^^^^^^^^^^
-- The reference data used by FUMA is on build GRCh37 (hg19).
-- If your data is build GRCh37, you can upload your file.
-- If your data is build GRCh38, you can: 
-   - use UCSC liftover tool to lift over from GRCh38 to GRCh37, OR: 
-   - if your input GWAS sumstat file contains rsID, you can still submit to FUMA by first make sure that **chromosome and position columns are not present**. 
-      - in this case, FUMA will use the provided rsID to look up the chromosomes and positions using dbSNP
-
-      .. warning::
-      IMPORTANT: make sure to completely remove the chromosome and position (in GRCh38) if present in your gwas sumstat 
-
 
 .. _mandatory_columns:
 Mandatory columns
@@ -134,6 +136,9 @@ Headers
 - A header is mandatory
 - Users have an option to specify the column names of the input GWAS sumstat: 
 
+..warning::
+   Only fill in this section if your GWAS sumstat is in GRCh37.
+
 .. image:: user_input_colnames.png
    :width: 400
 
@@ -141,7 +146,7 @@ Headers
 - When users do not specify the column names of the input GWAS sumstat, FUMA automatically detects the columns based on the following headers (case insensitive):
    - If a column has names **snp**, **snpid**, or **markername**, it will be detected as column for rsID
    - If a column has names **chr**, **chromosome**, or **chrom**, it will be detected as column for chromosome
-   - If a column has names **bp**, **pos**, or **position**, it will be detected as column for position (basepair)
+   - If a column has names **bp**, **pos**, or **position** or **base_pair_position**, it will be detected as column for position (basepair)
    - If a column has names **A1**, **effect_allele**, **allele1**, or **alleleB**: it will be detected as the effect allele 
    - If a column has names **A2**, **non_effect_allele**, **allele2**, or **alleleA**: it will be detected as non-effect-allele
    - If a column has names **P**, **pvalue**, **p-value**, **p_value**, or **pval**: it will be detected as p values
