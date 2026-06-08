@@ -14,6 +14,7 @@ Guidelines:
 2. Check the genome build of your GWAS sumstat. Is it in GRCh37 or GRCh38?
 
 .. _gwas_sumstat_37:
+
 3. If your GWAS sumstat is in GRCh37: 
 
 - Is there a header? 
@@ -22,7 +23,7 @@ Guidelines:
 - Is there a column for rsID? What is the column name? 
 - Is there a column for p value? What is the column name? 
 
-..warning::
+.. warning::
    Either **chromosome** and **position** OR **rsID** AND **p value** have to be present
 
 - Is there a column for effect allele? What is the column name? 
@@ -39,7 +40,9 @@ Guidelines:
 - If you choose not to fill in the name of the columns, FUMA tries to detect this based on common naming convention. Check :ref:`headers` for specifics. 
 
 .. _gwas_sumstat_38:
+
 4. If your GWAS sumstat is in GRCh38:
+
 - if your input GWAS sumstat file contains rsID, you can submit to FUMA by first removing the **chromosome** and **position** before submitting to FUMA. 
    - in this case, FUMA will use the provided rsID to look up the chromosomes and positions using dbSNP version 146
 
@@ -59,7 +62,9 @@ Guidelines:
       :width: 800
 
 5. Is there a value for sample size in your gwas sumstat? 
+
 - If yes, you can put in the name of the sample size column in section 2. For example: 
+
 .. image:: snp2gene_samplesize_name.png
    :width: 650
 
@@ -136,7 +141,7 @@ Headers
 - A header is mandatory
 - Users have an option to specify the column names of the input GWAS sumstat: 
 
-..warning::
+.. warning::
    Only fill in this section if your GWAS sumstat is in GRCh37.
 
 .. image:: user_input_colnames.png

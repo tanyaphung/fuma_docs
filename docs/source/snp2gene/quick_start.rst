@@ -229,6 +229,7 @@ Example 1. All 6 columns are present
 - 6 columns are present: chromosome, position, effect allele, non effect allele, rsID, and pval
 
 .. code-block:: bash
+
     CHROM   ID      POS     A1      A2      BETA    PVAL
     21      rs148082907     16647205        T       C       -0.0638027918527484     0.06351
     21      rs2823892       17948888        T       A       0.0125015292229252      0.5092
@@ -245,6 +246,7 @@ Example 2. Only rsID is missing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
+
     CHROM   POS     A1      A2      BETA    PVAL
     21      16647205        T       C       -0.0638027918527484     0.06351
     21      17948888        T       A       0.0125015292229252      0.5092
@@ -258,6 +260,7 @@ Example 3. When either effect allele or non effect allele or both are missing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
+
     CHROM   POS     A1      BETA    PVAL
     21      16647205        T       -0.0638027918527484     0.06351
     21      17948888        T       0.0125015292229252      0.5092
@@ -271,6 +274,7 @@ Example 3. Chromosome and Position are missing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
+
     ID      BETA    PVAL
     rs148082907     -0.0638027918527484     0.06351
     rs2823892       0.0125015292229252      0.5092
@@ -287,6 +291,7 @@ Example 1. 3 colums
 ~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
+
     chromosome      base_pair_location      p_value
     21      13086116        0.3811
     21      13143418        0.3467
@@ -298,6 +303,7 @@ Example 2. 6 colums
 ~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
+    
     chromosome      base_pair_location      effect_allele   other_allele    beta    p_value
     21      13086116        T       C       -0.1844 0.3811
     21      13143418        T       C       0.1984  0.3467
