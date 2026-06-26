@@ -176,13 +176,20 @@ This option would be useful when
 1. You have lead SNPs of interest but they do not reach significant P-value threshold.
 2. You are only interested in specific lead SNPs and do not want to identify additional lead SNPs which are independent. In this case, you also have to UNCHECK option of Identify additional independent lead SNPs.
 
-If you want to specify lead SNPs, input file should have the following 3 columns:
+If you want to specify lead SNPs, there are 2 options for the input file: 
+- Option 1: the input file has the following 3 columns:
    - rsID : rsID of the lead SNPs
    - chr : chromosome
-   - pos : genomic position (hg19)
+   - pos : genomic position (GRCh37)
 
 .. note::
-      The order of columns has to be exactly the same as shown above but header could be anything (the first row is ignored). Extra columns will be ignored.
+      The order of columns has to be exactly the same as shown above but header could be anything (the first row is ignored).
+
+- Option 2: the input file has 1 column: 
+   - rsID
+
+.. tip::
+      If you submit your input GWAS summary statistics in GRCh38, submit the pre-defined lead SNPs using the option with just rsID so you do not have to convert the coordinate to GRCh37. Instead FUMA will do this for you. 
 
 3. Pre-defined genomic region
 +++++++++++++++++++++++++++++
