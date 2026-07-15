@@ -52,12 +52,15 @@ Guidelines:
    - 2. Contain 6 columns with the follwing column names in this order: **chromosome**, **base_pair_location**, **effect_allele**, **other_allele**, **beta**, **p_value**
 
    .. tip::
-      Use a scripting language such as R or Python to select the columns and rename the column names to be compatible
+      Use a scripting language such as R or Python to select the columns and rename the column names to be compatible. Make sure to use tab as a delimiter. 
 
    - Click on option to select GRCh38 in the job submission page: 
 
    .. image:: submit_page_grch38.png
       :width: 800
+
+   .. info::
+      This option is provided as a convenience for users who have GWAS sumstat in GRCh38 and do not want to convert the coordinates to GRCh37 themselves. However, the reference database that FUMA uses is based on GRCh37 and the results would be returned to you in GRCh37 coordinates.
 
 5. Is there a value for sample size in your gwas sumstat? 
 
