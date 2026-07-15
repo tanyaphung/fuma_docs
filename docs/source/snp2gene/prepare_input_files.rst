@@ -59,7 +59,8 @@ Guidelines:
    .. image:: submit_page_grch38.png
       :width: 800
 
-   .. info::
+   
+   .. note::
       This option is provided as a convenience for users who have GWAS sumstat in GRCh38 and do not want to convert the coordinates to GRCh37 themselves. However, the reference database that FUMA uses is based on GRCh37 and the results would be returned to you in GRCh37 coordinates.
 
 5. Is there a value for sample size in your gwas sumstat? 
