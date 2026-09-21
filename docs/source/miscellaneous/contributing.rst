@@ -4,19 +4,27 @@ Contributing
 Add new scRNA-seq dataset
 -------------------------
 
-1. Prepare the scRNA-seq dataset following the example codes in https://github.com/tanyaphung/scrnaseq_viewer/tree/main/code/
+If you have a new scRNA-seq dataset that you would like to add to FUMA, please follow the steps below:
 
-- Do both the preprocessing and postprocessing (for use with MAGMA) steps
+1. Follow instructions from: https://github.com/RMBrouwer/FUMA_cell_type_metrics/tree/main
 
-2. Add the information of your datasets to 2 CSV files: https://github.com/tanyaphung/scrnaseq_viewer/blob/main/resources/fumacelltype_datasets_master.csv and https://github.com/tanyaphung/scrnaseq_viewer/blob/main/resources/scrna_fumacelltype_master.csv
-
-- Create a PR
-
-3. Share the outputs from the postprocessing steps to FUMA developer
+2. Share with FUMA developer
 
 - Email: fuma.ctglab@gmail.com
 
 - Subject: Request to add scrna data to FUMA
+
+- Please include:
+
+  - Your name and affiliation
+
+  - The dataset you would like to add (DOI, link to the dataset if available, etc...)
+
+  - A brief description of the dataset
+
+  - Documentation of what you did to process the data (e.g., code, scripts, etc...)
+
+  - The outputs 
 
 
 
